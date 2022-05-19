@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.restaurantrecommendation.databinding.FragmentHomeBinding
 import com.example.restaurantrecommendation.ui.bottomsheet.CategoryBottomSheet
+import com.example.restaurantrecommendation.ui.bottomsheet.LocationBottomSheet
 import com.example.restaurantrecommendation.ui.result.ResultActivity
 
 class HomeFragment : Fragment() {
@@ -33,6 +34,11 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.tvYourLocation.setOnClickListener {
+            val locationBottomSheet = LocationBottomSheet()
+            locationBottomSheet.show(parentFragmentManager, LocationBottomSheet.TAG)
+        }
 
         binding.tvInput.setOnClickListener {
             startActivity(Intent(activity, ResultActivity::class.java))

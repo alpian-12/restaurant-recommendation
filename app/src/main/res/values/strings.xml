@@ -4,16 +4,19 @@
     <string name="title_favorite">Favorites</string>
     <string name="title_result">Results</string>
 
+    <string name="location">Location</string>
     <string name="your_location">Your Location</string>
     <string name="category">Categories</string>
     <string name="recommendations">Recommendations</string>
+    <string name="suggestions">Suggestions</string>
 
     <!-- Dummy -->
     <string name="location_name">Jakarta Selatan</string>
-
+    <string name="address">Jl. M.H. Thamrin No.1, Kb. Melati, Kecamatan Tanah Abang, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10230</string>
 
     <!-- Description -->
     <string name="hint_search">Restaurant, Food</string>
+    <string name="current_location">Your current location</string>
 
     <!-- Categories -->
     <string name="sweets">Sweets</string>
