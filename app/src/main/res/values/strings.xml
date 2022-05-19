@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Restaurant Recommendation</string>
+    <string name="title_home">Home</string>
+    <string name="title_favorite">Favorites</string>
+    <string name="title_result">Results</string>
+
+    <string name="your_location">Your Location</string>
+    <string name="category">Categories</string>
+    <string name="recommendations">Recommendations</string>
+
+    <!-- Dummy -->
+    <string name="location_name">Jakarta Selatan</string>
+
+
+    <!-- Description -->
+    <string name="hint_search">Restaurant, Food</string>
+
+    <!-- Categories -->
+    <string name="sweets">Sweets</string>
+    <string name="rice">Rice</string>
+    <string name="meatball">Meatball</string>
+    <string name="chicken">Chicken</string>
+    <string name="drinks">Drinks</string>
+    <string name="coffee">Coffee</string>
+    <string name="seafood">Seafood</string>
+    <string name="western">Western</string>
+    <string name="noodle">Noodle</string>
+    <string name="chinese">Chinese</string>
+    <string name="indian">Indian</string>
+    <string name="japanese">Japanese</string>
+    <string name="middle_east">Middle East</string>
+    <string name="thai">Thai</string>
+    <string name="more">More</string>
+</resources>
