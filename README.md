@@ -23,7 +23,7 @@ git push
 Before doing pull the newest commit, stash or commit your works first
 1. Pull the newest commit
 ```
-git pull https://github.com/cshinta/cancer-share.git
+git pull https://github.com/kartikasw/Restaurant-Recommendation.git
 ```
 2. If there is conflict, fix it manually then commit it
 ```
