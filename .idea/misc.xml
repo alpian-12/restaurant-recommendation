@@ -3,6 +3,33 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/capstone/Restaurant-Recommendation/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2335" />
+        <entry key="..\:/capstone/Restaurant-Recommendation/app/src/main/res/drawable/bg_bottom_sheet.xml" value="0.2335" />
+        <entry key="..\:/capstone/Restaurant-Recommendation/app/src/main/res/drawable/bg_search_view.xml" value="0.2335" />
+        <entry key="..\:/capstone/Restaurant-Recommendation/app/src/main/res/drawable/btn_login_signup.xml" value="0.2335" />
+        <entry key="..\:/capstone/Restaurant-Recommendation/app/src/main/res/drawable/field_text_input.xml" value="0.2335" />
+        <entry key="..\:/capstone/Restaurant-Recommendation/app/src/main/res/drawable/ic_arrow_down.xml" value="0.2335" />
+        <entry key="..\:/capstone/Restaurant-Recommendation/app/src/main/res/drawable/ic_baseline_star_rate_24.xml" value="0.2335" />
+        <entry key="..\:/capstone/Restaurant-Recommendation/app/src/main/res/drawable/ic_camera.xml" value="0.2335" />
+        <entry key="..\:/capstone/Restaurant-Recommendation/app/src/main/res/drawable/ic_favorite.xml" value="0.2335" />
+        <entry key="..\:/capstone/Restaurant-Recommendation/app/src/main/res/drawable/ic_home.xml" value="0.2335" />
+        <entry key="..\:/capstone/Restaurant-Recommendation/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2335" />
+        <entry key="..\:/capstone/Restaurant-Recommendation/app/src/main/res/drawable/ic_location.xml" value="0.2335" />
+        <entry key="..\:/capstone/Restaurant-Recommendation/app/src/main/res/drawable/ic_search.xml" value="0.2335" />
+        <entry key="..\:/capstone/Restaurant-Recommendation/app/src/main/res/drawable/ic_star_rate.xml" value="0.2335" />
+        <entry key="..\:/capstone/Restaurant-Recommendation/app/src/main/res/drawable/rounded_ditance.xml" value="0.2335" />
+        <entry key="..\:/capstone/Restaurant-Recommendation/app/src/main/res/font/roboto.xml" value="0.18425925925925926" />
+        <entry key="..\:/capstone/Restaurant-Recommendation/app/src/main/res/font/roboto_light.xml" value="0.18425925925925926" />
+        <entry key="..\:/capstone/Restaurant-Recommendation/app/src/main/res/font/roboto_medium.xml" value="0.18425925925925926" />
+        <entry key="..\:/capstone/Restaurant-Recommendation/app/src/main/res/layout/activity_login.xml" value="0.536" />
+        <entry key="..\:/capstone/Restaurant-Recommendation/app/src/main/res/layout/activity_login_acticity.xml" value="0.24094202898550723" />
+        <entry key="..\:/capstone/Restaurant-Recommendation/app/src/main/res/layout/activity_main.xml" value="0.35534317984361424" />
+        <entry key="..\:/capstone/Restaurant-Recommendation/app/src/main/res/layout/activity_result.xml" value="0.22826086956521738" />
+        <entry key="..\:/capstone/Restaurant-Recommendation/app/src/main/res/layout/activity_sign_up.xml" value="0.136" />
+        <entry key="..\:/capstone/Restaurant-Recommendation/app/src/main/res/layout/bottom_sheet_category.xml" value="0.1" />
+        <entry key="..\:/capstone/Restaurant-Recommendation/app/src/main/res/layout/fragment_favorite.xml" value="0.264" />
+        <entry key="..\:/capstone/Restaurant-Recommendation/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/capstone/Restaurant-Recommendation/app/src/main/res/layout/item_restaurant.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/bg_bottom_sheet.xml" value="0.283" />
         <entry key="app/src/main/res/drawable/bg_button_category.xml" value="0.283" />
         <entry key="app/src/main/res/drawable/bg_search_view.xml" value="0.194" />
