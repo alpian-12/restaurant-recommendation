@@ -1,14 +1,7 @@
 package com.example.restaurantrecommendation.ui.result
 
-import android.app.SearchManager
-import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.inputmethod.InputMethodManager
-import android.widget.EditText
-import androidx.appcompat.widget.SearchView
-import com.example.restaurantrecommendation.R
-import com.example.restaurantrecommendation.databinding.ActivityMainBinding
+import androidx.appcompat.app.AppCompatActivity
 import com.example.restaurantrecommendation.databinding.ActivityResultBinding
 
 class ResultActivity : AppCompatActivity() {

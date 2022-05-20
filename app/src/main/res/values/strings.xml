@@ -34,4 +34,38 @@
     <string name="middle_east">Middle East</string>
     <string name="thai">Thai</string>
     <string name="more">More</string>
+
+    <string-array name="categeory_name">
+        <item>@string/sweets</item>
+        <item>@string/rice</item>
+        <item>@string/meatball</item>
+        <item>@string/chicken</item>
+        <item>@string/drinks</item>
+        <item>@string/coffee</item>
+        <item>@string/seafood</item>
+        <item>@string/western</item>
+        <item>@string/noodle</item>
+        <item>@string/chinese</item>
+        <item>@string/indian</item>
+        <item>@string/japanese</item>
+        <item>@string/middle_east</item>
+        <item>@string/thai</item>
+    </string-array>
+
+    <string-array name="categeory_icon">
+        <item>@drawable/c_sweets</item>
+        <item>@drawable/c_rice</item>
+        <item>@drawable/c_meatball</item>
+        <item>@drawable/c_chicken</item>
+        <item>@drawable/c_drinks</item>
+        <item>@drawable/c_coffee</item>
+        <item>@drawable/c_seafood</item>
+        <item>@drawable/c_western</item>
+        <item>@drawable/c_noodle</item>
+        <item>@drawable/c_chinese</item>
+        <item>@drawable/c_indian</item>
+        <item>@drawable/c_japanese</item>
+        <item>@drawable/c_middle_east</item>
+        <item>@drawable/c_thai</item>
+    </string-array>
 </resources>
