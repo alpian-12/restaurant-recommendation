@@ -1,0 +1,4 @@
+package com.example.restaurantrecommendation.ui.detailrestaurant.descriptiondetailrestaurant
+
+class DescriptionRestaurantViewModel {
+}

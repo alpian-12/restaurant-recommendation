@@ -1,13 +1,14 @@
-    package com.example.restaurantrecommendation.ui.login
+package com.example.restaurantrecommendation.ui.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.restaurantrecommendation.databinding.ActivityLoginBinding
+import com.example.restaurantrecommendation.ui.detailrestaurant.DetailRestaurantActivity
 import com.example.restaurantrecommendation.ui.main.MainActivity
 import com.example.restaurantrecommendation.ui.signup.SignUpActivity
 
-    class LoginActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
 
@@ -22,7 +23,7 @@ import com.example.restaurantrecommendation.ui.signup.SignUpActivity
             }
 
             btnLogin.setOnClickListener {
-                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                startActivity(Intent(this@LoginActivity, DetailRestaurantActivity::class.java))
             }
         }
     }

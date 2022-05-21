@@ -37,7 +37,7 @@
             android:drawablePadding="12dp"
             android:hint="@string/full_name"
             android:paddingHorizontal="15dp"
-            android:textSize="16sp"
+            style="@style/text_input"
             android:importantForAutofill="no"
             android:inputType="text" />
         <EditText
@@ -49,7 +49,7 @@
             android:drawablePadding="12dp"
             android:hint="@string/email"
             android:paddingHorizontal="15dp"
-            android:textSize="16sp"
+            style="@style/text_input"
             android:importantForAutofill="no"
             android:inputType="textEmailAddress" />
 
@@ -62,7 +62,7 @@
             android:drawablePadding="12dp"
             android:hint="@string/password"
             android:paddingHorizontal="15dp"
-            android:textSize="16sp"
+            style="@style/text_input"
             android:importantForAutofill="no"
             android:inputType="textPassword" />
 
@@ -75,10 +75,12 @@
             android:drawablePadding="12dp"
             android:hint="@string/password_confirmation"
             android:paddingHorizontal="15dp"
-            android:textSize="16sp"
+            style="@style/text_input"
             android:importantForAutofill="no"
             android:inputType="textPassword"/>
         <Button
+            style="@style/button_tab"
+            android:textColor="@color/white"
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -103,6 +105,7 @@
         app:layout_constraintTop_toBottomOf="@+id/form_field">
 
         <TextView
+            style="@style/paragraph_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sign_in_with" />
@@ -124,11 +127,14 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <TextView
+            style="@style/paragraph_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/already_have_an_account" />
 
         <TextView
+            android:layout_marginLeft="7dp"
+            style="@style/paragraph_text"
             android:id="@+id/login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

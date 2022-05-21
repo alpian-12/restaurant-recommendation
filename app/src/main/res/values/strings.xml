@@ -93,6 +93,11 @@
     <string name="sign_in_with">---- Sign in with ----</string>
     <string name="already_have_an_account">Already have an account?</string>
     <string name="foto_deskripsi">foto deskripsi</string>
+    <string name="separate">|</string>
+    <string name="review">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs</string>
+    <string name="halal">Halal</string>
+    <string name="name">james bond</string>
+    <string name="restaurant_name">Restoran Murah Meriah</string>
 
     <string-array name="location">
         <item>@string/north_jakarta</item>
@@ -106,4 +111,13 @@
         <item>@string/tangerang</item>
         <item>@string/bekasi</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="restaurant_description">Restaurant Description</string>
+    <string name="restaurant_review">Restaurant Review</string>
+    <string name="tab_text_description">Description</string>
+    <string name="tab_text_review">Review</string>
+    <string name="address_restaurant">Jl. Danau Sunter Utara No.41, Sunter Agung, Tanjung Priok, North Jakarta City, Jakarta 14340</string>
+    <string name="description2">Menyediakan makanan rumahan</string>
+
 </resources>
