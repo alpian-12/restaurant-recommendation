@@ -8,9 +8,30 @@ class CategoryActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCategoryBinding
 
+    companion object {
+        const val CATEGORY_NAME = "Category"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCategoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setToolbar()
     }
+
+    private fun setToolbar() {
+        setSupportActionBar(binding.topAppBar)
+        supportActionBar?.apply {
+            title = intent.getStringExtra(CATEGORY_NAME)
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
 }

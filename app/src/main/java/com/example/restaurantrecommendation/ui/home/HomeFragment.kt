@@ -11,6 +11,7 @@ import com.example.restaurantrecommendation.R
 import com.example.restaurantrecommendation.databinding.FragmentHomeBinding
 import com.example.restaurantrecommendation.ui.bottomsheet.CategoryBottomSheet
 import com.example.restaurantrecommendation.ui.bottomsheet.LocationBottomSheet
+import com.example.restaurantrecommendation.ui.category.CategoryActivity
 import com.example.restaurantrecommendation.ui.result.ResultActivity
 
 class HomeFragment : Fragment(), View.OnClickListener {
@@ -44,6 +45,13 @@ class HomeFragment : Fragment(), View.OnClickListener {
             tvYourLocation.setOnClickListener(this@HomeFragment)
             tvInput.setOnClickListener(this@HomeFragment)
             btnMore.setOnClickListener(this@HomeFragment)
+            btnSweets.setOnClickListener(this@HomeFragment)
+            btnRice.setOnClickListener(this@HomeFragment)
+            btnMeatball.setOnClickListener(this@HomeFragment)
+            btnChicken.setOnClickListener(this@HomeFragment)
+            btnDrinks.setOnClickListener(this@HomeFragment)
+            btnCoffee.setOnClickListener(this@HomeFragment)
+            btnSeafood.setOnClickListener(this@HomeFragment)
         }
     }
 
@@ -59,6 +67,48 @@ class HomeFragment : Fragment(), View.OnClickListener {
             R.id.btn_more -> {
                 val categoryBottomSheet = CategoryBottomSheet()
                 categoryBottomSheet.show(parentFragmentManager, CategoryBottomSheet.TAG)
+            }
+            R.id.btn_sweets -> {
+                startActivity(
+                    Intent(activity, CategoryActivity::class.java)
+                        .putExtra(CategoryActivity.CATEGORY_NAME, resources.getString(R.string.sweets))
+                )
+            }
+            R.id.btn_rice -> {
+                startActivity(
+                    Intent(activity, CategoryActivity::class.java)
+                        .putExtra(CategoryActivity.CATEGORY_NAME, resources.getString(R.string.rice))
+                )
+            }
+            R.id.btn_meatball -> {
+                startActivity(
+                    Intent(activity, CategoryActivity::class.java)
+                        .putExtra(CategoryActivity.CATEGORY_NAME, resources.getString(R.string.meatball))
+                )
+            }
+            R.id.btn_chicken -> {
+                startActivity(
+                    Intent(activity, CategoryActivity::class.java)
+                        .putExtra(CategoryActivity.CATEGORY_NAME, resources.getString(R.string.chicken))
+                )
+            }
+            R.id.btn_drinks -> {
+                startActivity(
+                    Intent(activity, CategoryActivity::class.java)
+                        .putExtra(CategoryActivity.CATEGORY_NAME, resources.getString(R.string.drinks))
+                )
+            }
+            R.id.btn_coffee -> {
+                startActivity(
+                    Intent(activity, CategoryActivity::class.java)
+                        .putExtra(CategoryActivity.CATEGORY_NAME, resources.getString(R.string.coffee))
+                )
+            }
+            R.id.btn_seafood -> {
+                startActivity(
+                    Intent(activity, CategoryActivity::class.java)
+                        .putExtra(CategoryActivity.CATEGORY_NAME, resources.getString(R.string.seafood))
+                )
             }
         }
     }

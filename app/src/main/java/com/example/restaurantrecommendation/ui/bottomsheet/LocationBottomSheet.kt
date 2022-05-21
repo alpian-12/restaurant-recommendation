@@ -54,7 +54,7 @@ class LocationBottomSheet: BottomSheetDialogFragment() {
             chip.text = list[i].name
 
             chip.setOnClickListener {
-                Toast.makeText(context, "Location is chosen", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "${list[i].name} is chosen", Toast.LENGTH_SHORT).show()
                 this.dismiss()
             }
 
