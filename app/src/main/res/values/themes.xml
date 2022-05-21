@@ -12,6 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="chipStyle">@style/Widget.MyApp.Chip.Choice</item>
     </style>
 
     <!-- App Bar -->
@@ -86,4 +87,18 @@
         <item name="android:layout_height">45dp</item>
         <item name="android:layout_gravity">center</item>
     </style>
+
+    <!-- Chips -->
+    <style name="Widget.MyApp.Chip.Choice" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.MyApp.Chip.Choice</item>
+        <item name="android:textAppearance">@style/secondary_text_caption</item>
+        <item name="chipBackgroundColor">@color/white</item>
+        <item name="chipStrokeColor">@color/black</item>
+        <item name="chipStrokeWidth">1dp</item>
+    </style>
+
+    <style name="ThemeOverlay.MyApp.Chip.Choice" parent="">
+        <item name="elevationOverlayEnabled">false</item>
+    </style>
+
 </resources>

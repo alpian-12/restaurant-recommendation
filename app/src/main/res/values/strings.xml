@@ -68,4 +68,29 @@
         <item>@drawable/c_middle_east</item>
         <item>@drawable/c_thai</item>
     </string-array>
+
+    <!-- Locations -->
+    <string name="north_jakarta">Jakarta Utara</string>
+    <string name="south_jakarta">Jakarta Selatan</string>
+    <string name="east_jakarta">Jakarta Timur</string>
+    <string name="west_jakarta">Jakarta Barat</string>
+    <string name="center_jakarta">Jakarta Utara</string>
+    <string name="kep_seribu">Kepulauan Seribu</string>
+    <string name="bogor">Bogor</string>
+    <string name="depok">Depok</string>
+    <string name="tangerang">Tangerang</string>
+    <string name="bekasi">Bekasi</string>
+
+    <string-array name="location">
+        <item>@string/north_jakarta</item>
+        <item>@string/south_jakarta</item>
+        <item>@string/east_jakarta</item>
+        <item>@string/west_jakarta</item>
+        <item>@string/center_jakarta</item>
+        <item>@string/kep_seribu</item>
+        <item>@string/bogor</item>
+        <item>@string/depok</item>
+        <item>@string/tangerang</item>
+        <item>@string/bekasi</item>
+    </string-array>
 </resources>
