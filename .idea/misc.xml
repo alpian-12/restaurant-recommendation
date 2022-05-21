@@ -3,6 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/coastone insyaklklah/Restaurant-Recommendation-bangkitalpian/app/src/main/res/drawable/btn_login_signup.xml" value="0.2265" />
+        <entry key="..\:/coastone insyaklklah/Restaurant-Recommendation-bangkitalpian/app/src/main/res/drawable/card_restaurant.xml" value="0.2265" />
+        <entry key="..\:/coastone insyaklklah/Restaurant-Recommendation-bangkitalpian/app/src/main/res/drawable/field_text_input.xml" value="0.2265" />
+        <entry key="..\:/coastone insyaklklah/Restaurant-Recommendation-bangkitalpian/app/src/main/res/drawable/ic_email.xml" value="0.2265" />
+        <entry key="..\:/coastone insyaklklah/Restaurant-Recommendation-bangkitalpian/app/src/main/res/drawable/ic_favorite.xml" value="0.2265" />
+        <entry key="..\:/coastone insyaklklah/Restaurant-Recommendation-bangkitalpian/app/src/main/res/drawable/ic_lock.xml" value="0.2265" />
+        <entry key="..\:/coastone insyaklklah/Restaurant-Recommendation-bangkitalpian/app/src/main/res/drawable/ic_person_green.xml" value="0.2265" />
+        <entry key="..\:/coastone insyaklklah/Restaurant-Recommendation-bangkitalpian/app/src/main/res/drawable/ic_star_rate.xml" value="0.2265" />
+        <entry key="..\:/coastone insyaklklah/Restaurant-Recommendation-bangkitalpian/app/src/main/res/drawable/photorestaurant.xml" value="0.2265" />
+        <entry key="..\:/coastone insyaklklah/Restaurant-Recommendation-bangkitalpian/app/src/main/res/drawable/rounded_ditance.xml" value="0.2265" />
+        <entry key="..\:/coastone insyaklklah/Restaurant-Recommendation-bangkitalpian/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/coastone insyaklklah/Restaurant-Recommendation-bangkitalpian/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/coastone insyaklklah/Restaurant-Recommendation-bangkitalpian/app/src/main/res/layout/activity_result.xml" value="0.1" />
+        <entry key="..\:/coastone insyaklklah/Restaurant-Recommendation-bangkitalpian/app/src/main/res/layout/activity_sign_up.xml" value="0.22826086956521738" />
+        <entry key="..\:/coastone insyaklklah/Restaurant-Recommendation-bangkitalpian/app/src/main/res/layout/bottom_sheet_category.xml" value="0.22826086956521738" />
+        <entry key="..\:/coastone insyaklklah/Restaurant-Recommendation-bangkitalpian/app/src/main/res/layout/bottom_sheet_location.xml" value="0.22826086956521738" />
+        <entry key="..\:/coastone insyaklklah/Restaurant-Recommendation-bangkitalpian/app/src/main/res/layout/fragment_favorite.xml" value="0.22826086956521738" />
+        <entry key="..\:/coastone insyaklklah/Restaurant-Recommendation-bangkitalpian/app/src/main/res/layout/fragment_home.xml" value="0.22826086956521738" />
+        <entry key="..\:/coastone insyaklklah/Restaurant-Recommendation-bangkitalpian/app/src/main/res/layout/item_restaurant.xml" value="0.22826086956521738" />
         <entry key="app/src/main/res/drawable/bg_bottom_sheet.xml" value="0.283" />
         <entry key="app/src/main/res/drawable/bg_button_category.xml" value="0.283" />
         <entry key="app/src/main/res/drawable/bg_chip.xml" value="0.193" />

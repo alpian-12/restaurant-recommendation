@@ -23,20 +23,20 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/your_location"
-                app:layout_constraintStart_toStartOf="@id/tv_location"
-                app:layout_constraintTop_toTopOf="parent"
+                app:drawableEndCompat="@drawable/ic_arrow_down"
                 app:drawableTint="@color/green"
-                app:drawableEndCompat="@drawable/ic_arrow_down" />
+                app:layout_constraintStart_toStartOf="@id/tv_location"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/iv_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="location"
                 android:src="@drawable/ic_location"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_your_location"
                 app:tint="@color/green"
-                android:contentDescription="location"
                 tools:ignore="HardcodedText" />
 
             <TextView
@@ -53,21 +53,21 @@
                 android:id="@+id/iv_profile"
                 android:layout_width="34dp"
                 android:layout_height="34dp"
+                android:contentDescription="profile picture"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_launcher_background"
                 app:layout_constraintBottom_toBottomOf="@id/tv_location"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_your_location"
-                android:contentDescription="profile picture"
                 tools:ignore="HardcodedText" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_search"
-                android:background="@drawable/bg_search_view"
                 android:layout_width="match_parent"
                 android:layout_height="34dp"
-                android:paddingHorizontal="@dimen/activity_horizontal_margin"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:background="@drawable/bg_search_view"
+                android:paddingHorizontal="@dimen/activity_horizontal_margin"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_location">
@@ -75,19 +75,19 @@
                 <TextView
                     android:id="@+id/tv_input"
                     style="@style/text_input"
-                    android:text="@string/hint_search"
-                    android:textColor="@color/grey_light"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_search"
-                    android:drawableTint="@color/green"
+                    android:layout_marginEnd="10dp"
                     android:drawablePadding="10dp"
                     android:gravity="center_vertical"
-                    android:layout_marginEnd="10dp"
+                    android:text="@string/hint_search"
+                    android:textColor="@color/grey_light"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/view"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:drawableStartCompat="@drawable/ic_search"
+                    app:drawableTint="@color/green" />
 
                 <View
                     android:id="@+id/view"
@@ -105,12 +105,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@null"
+                    android:contentDescription="open the camera"
                     android:src="@drawable/ic_camera"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:tint="@color/green"
-                    android:contentDescription="open the camera"
                     tools:ignore="HardcodedText" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -125,28 +125,30 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
+
             android:layout_height="match_parent"
-            android:paddingHorizontal="@dimen/activity_horizontal_margin"
+            android:orientation="vertical"
+
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <TextView
                 android:id="@+id/tv_category"
                 style="@style/list_item_important_text_snippet"
-                android:text="@string/category"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/activity_horizontal_margin"
+                android:text="@string/category" />
 
             <com.google.android.flexbox.FlexboxLayout
-                android:layout_marginHorizontal="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:justifyContent="space_between"
-                android:layout_marginTop="10dp">
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:paddingHorizontal="@dimen/activity_horizontal_margin"
+                app:justifyContent="space_between">
 
                 <LinearLayout
-                    android:id="@+id/btn_sweets"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -154,12 +156,13 @@
                     <androidx.cardview.widget.CardView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        app:cardCornerRadius="7dp"
-                        android:layout_margin="2dp">
+                        android:layout_margin="2dp"
+                        app:cardCornerRadius="7dp">
 
                         <ImageView
                             style="@style/category"
-                            android:src="@drawable/c_sweets"/>
+                            android:src="@drawable/c_sweets"
+                            android:contentDescription="@string/foto_deskripsi" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -167,14 +170,13 @@
                         style="@style/secondary_text_caption"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/sweets"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="5dp"/>
+                        android:layout_marginTop="5dp"
+                        android:text="@string/sweets" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/btn_rice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -182,12 +184,13 @@
                     <androidx.cardview.widget.CardView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        app:cardCornerRadius="7dp"
-                        android:layout_margin="2dp">
+                        android:layout_margin="2dp"
+                        app:cardCornerRadius="7dp">
 
                         <ImageView
                             style="@style/category"
-                            android:src="@drawable/c_rice"/>
+                            android:src="@drawable/c_rice"
+                            android:contentDescription="@string/foto_deskripsi" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -195,14 +198,13 @@
                         style="@style/secondary_text_caption"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/rice"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="5dp"/>
+                        android:layout_marginTop="5dp"
+                        android:text="@string/rice" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/btn_meatball"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -210,12 +212,13 @@
                     <androidx.cardview.widget.CardView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        app:cardCornerRadius="7dp"
-                        android:layout_margin="2dp">
+                        android:layout_margin="2dp"
+                        app:cardCornerRadius="7dp">
 
                         <ImageView
                             style="@style/category"
-                            android:src="@drawable/c_meatball"/>
+                            android:src="@drawable/c_meatball"
+                            android:contentDescription="@string/foto_deskripsi" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -223,14 +226,13 @@
                         style="@style/secondary_text_caption"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/meatball"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="5dp"/>
+                        android:layout_marginTop="5dp"
+                        android:text="@string/meatball" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/btn_chicken"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -238,12 +240,13 @@
                     <androidx.cardview.widget.CardView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        app:cardCornerRadius="7dp"
-                        android:layout_margin="2dp">
+                        android:layout_margin="2dp"
+                        app:cardCornerRadius="7dp">
 
                         <ImageView
                             style="@style/category"
-                            android:src="@drawable/c_chicken"/>
+                            android:src="@drawable/c_chicken"
+                            android:contentDescription="@string/foto_deskripsi" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -251,23 +254,23 @@
                         style="@style/secondary_text_caption"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/chicken"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="5dp"/>
+                        android:layout_marginTop="5dp"
+                        android:text="@string/chicken" />
 
                 </LinearLayout>
 
             </com.google.android.flexbox.FlexboxLayout>
 
             <com.google.android.flexbox.FlexboxLayout
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:paddingHorizontal="@dimen/activity_horizontal_margin"
                 app:justifyContent="space_between">
 
                 <LinearLayout
-                    android:id="@+id/btn_drinks"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -275,12 +278,13 @@
                     <androidx.cardview.widget.CardView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        app:cardCornerRadius="7dp"
-                        android:layout_margin="2dp">
+                        android:layout_margin="2dp"
+                        app:cardCornerRadius="7dp">
 
                         <ImageView
                             style="@style/category"
-                            android:src="@drawable/c_drinks"/>
+                            android:src="@drawable/c_drinks"
+                            android:contentDescription="@string/foto_deskripsi" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -288,14 +292,13 @@
                         style="@style/secondary_text_caption"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/drinks"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="5dp"/>
+                        android:layout_marginTop="5dp"
+                        android:text="@string/drinks" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/btn_coffee"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -303,12 +306,13 @@
                     <androidx.cardview.widget.CardView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        app:cardCornerRadius="7dp"
-                        android:layout_margin="2dp">
+                        android:layout_margin="2dp"
+                        app:cardCornerRadius="7dp">
 
                         <ImageView
                             style="@style/category"
-                            android:src="@drawable/c_coffee"/>
+                            android:src="@drawable/c_coffee"
+                            android:contentDescription="@string/foto_deskripsi" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -316,14 +320,13 @@
                         style="@style/secondary_text_caption"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/coffee"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="5dp"/>
+                        android:layout_marginTop="5dp"
+                        android:text="@string/coffee" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/btn_seafood"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -331,12 +334,13 @@
                     <androidx.cardview.widget.CardView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        app:cardCornerRadius="7dp"
-                        android:layout_margin="2dp">
+                        android:layout_margin="2dp"
+                        app:cardCornerRadius="7dp">
 
                         <ImageView
                             style="@style/category"
-                            android:src="@drawable/c_seafood"/>
+                            android:src="@drawable/c_seafood"
+                            android:contentDescription="@string/foto_deskripsi" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -344,9 +348,9 @@
                         style="@style/secondary_text_caption"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/seafood"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="5dp"/>
+                        android:layout_marginTop="5dp"
+                        android:text="@string/seafood" />
 
                 </LinearLayout>
 
@@ -359,13 +363,14 @@
                         android:id="@+id/btn_more"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        app:cardCornerRadius="7dp"
-                        android:layout_margin="2dp">
+                        android:layout_margin="2dp"
+                        app:cardCornerRadius="7dp">
 
                         <ImageView
                             style="@style/category"
                             android:layout_width="30dp"
-                            android:src="@drawable/ic_more"/>
+                            android:src="@drawable/ic_more"
+                            android:contentDescription="@string/foto_deskripsi" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -373,36 +378,47 @@
                         style="@style/secondary_text_caption"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/more"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="5dp"/>
+                        android:layout_marginTop="5dp"
+                        android:text="@string/more" />
 
                 </LinearLayout>
 
             </com.google.android.flexbox.FlexboxLayout>
 
+
             <TextView
                 android:id="@+id/tv_recommendation"
                 style="@style/list_item_important_text_snippet"
-                android:text="@string/recommendations"
-                android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingHorizontal="@dimen/activity_horizontal_margin"
+                android:text="@string/recommendations" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_restaurant"
-                android:layout_marginTop="10dp"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:overScrollMode="never"/>
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_restaurant"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:overScrollMode="never"
+                    tools:listitem="@layout/item_restaurant" />
+            </LinearLayout>
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
 
     <FrameLayout
         android:id="@+id/standard_bottom_sheet"
-        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
