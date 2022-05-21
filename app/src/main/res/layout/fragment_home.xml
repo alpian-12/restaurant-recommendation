@@ -146,6 +146,7 @@
                 android:layout_marginTop="10dp">
 
                 <LinearLayout
+                    android:id="@+id/btn_sweets"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -173,6 +174,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/btn_rice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -200,6 +202,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/btn_meatball"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -227,6 +230,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/btn_chicken"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -263,6 +267,7 @@
                 app:justifyContent="space_between">
 
                 <LinearLayout
+                    android:id="@+id/btn_drinks"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -290,6 +295,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/btn_coffee"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -317,6 +323,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/btn_seafood"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">

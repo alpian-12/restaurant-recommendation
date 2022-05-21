@@ -7,12 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.restaurantrecommendation.R
 import com.example.restaurantrecommendation.databinding.FragmentHomeBinding
 import com.example.restaurantrecommendation.ui.bottomsheet.CategoryBottomSheet
 import com.example.restaurantrecommendation.ui.bottomsheet.LocationBottomSheet
 import com.example.restaurantrecommendation.ui.result.ResultActivity
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), View.OnClickListener {
 
     private var _binding: FragmentHomeBinding? = null
 
@@ -35,18 +36,30 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.tvYourLocation.setOnClickListener {
-            val locationBottomSheet = LocationBottomSheet()
-            locationBottomSheet.show(parentFragmentManager, LocationBottomSheet.TAG)
-        }
+        setOnClickListener()
+    }
 
-        binding.tvInput.setOnClickListener {
-            startActivity(Intent(activity, ResultActivity::class.java))
+    private fun setOnClickListener() {
+        with(binding) {
+            tvYourLocation.setOnClickListener(this@HomeFragment)
+            tvInput.setOnClickListener(this@HomeFragment)
+            btnMore.setOnClickListener(this@HomeFragment)
         }
+    }
 
-        binding.btnMore.setOnClickListener {
-            val categoryBottomSheet = CategoryBottomSheet()
-            categoryBottomSheet.show(parentFragmentManager, CategoryBottomSheet.TAG)
+    override fun onClick(view: View?) {
+        when(view?.id) {
+            R.id.tv_your_location -> {
+                val locationBottomSheet = LocationBottomSheet()
+                locationBottomSheet.show(parentFragmentManager, LocationBottomSheet.TAG)
+            }
+            R.id.tv_input -> {
+                startActivity(Intent(activity, ResultActivity::class.java))
+            }
+            R.id.btn_more -> {
+                val categoryBottomSheet = CategoryBottomSheet()
+                categoryBottomSheet.show(parentFragmentManager, CategoryBottomSheet.TAG)
+            }
         }
     }
 
