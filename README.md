@@ -30,4 +30,3 @@ git pull https://github.com/kartikasw/Restaurant-Recommendation.git
 git commit -m "your commit message"
 ```
 3. After that your repository is already up to date
------
