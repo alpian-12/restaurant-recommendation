@@ -80,6 +80,19 @@
     <string name="depok">Depok</string>
     <string name="tangerang">Tangerang</string>
     <string name="bekasi">Bekasi</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="log_in">Log in</string>
+    <string name="log_in_with">---- Log in with ----</string>
+    <string name="don_t_have_an_account">Don’t have an account?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="google_image">google image</string>
+    <string name="login">Login</string>
+    <string name="full_name">Full name</string>
+    <string name="password_confirmation">Password Confirmation</string>
+    <string name="sign_in_with">---- Sign in with ----</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="foto_deskripsi">foto deskripsi</string>
 
     <string-array name="location">
         <item>@string/north_jakarta</item>
