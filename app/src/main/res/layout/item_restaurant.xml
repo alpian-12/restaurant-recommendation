@@ -2,10 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="157dp"
-
-
-    >
+    android:layout_height="157dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,6 +25,7 @@
                     android:layout_margin="13dp"
                     android:background="@drawable/photorestaurant"
                     android:clipToOutline="true"
+                    android:contentDescription="@string/foto_deskripsi"
                     android:src="@drawable/dummy_photo" />
 
 
@@ -35,6 +33,7 @@
                     android:layout_width="43dp"
                     android:layout_height="43dp"
                     android:layout_margin="5dp"
+                    android:contentDescription="@string/foto_deskripsi"
                     android:src="@drawable/halal" />
             </FrameLayout>
 
@@ -50,23 +49,22 @@
 
                     <TextView
                         android:id="@+id/Restaurant_name"
+                        style="@style/list_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Restoran Murah Meriah"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:layout_marginTop="13dp"
+                        android:text="@string/restaurant_name" />
 
                     <TextView
                         android:id="@+id/Address_restaurant"
+                        style="@style/secondary_text_caption"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/Restaurant_name"
                         android:layout_alignParentStart="true"
                         android:layout_marginStart="0dp"
                         android:layout_marginTop="5dp"
-                        android:text="Raflesia Hills No.50 Jalan ..."
-                        android:textStyle="normal" />
+                        android:text="Raflesia Hills No.50 Jalan ..." />
 
                     <ImageView
                         android:id="@+id/start_rate"
@@ -79,6 +77,7 @@
 
                     <TextView
                         android:id="@+id/rate_restaurant"
+                        style="@style/secondary_text_caption"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignTop="@+id/start_rate"
@@ -98,6 +97,7 @@
                         android:padding="0dp">
 
                         <TextView
+                            style="@style/secondary_text_caption"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
