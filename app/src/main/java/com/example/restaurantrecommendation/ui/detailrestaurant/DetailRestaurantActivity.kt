@@ -12,7 +12,7 @@ import com.example.restaurantrecommendation.databinding.ActivityDetailRestaurant
 import com.example.restaurantrecommendation.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
-class   DetailRestaurantActivity : AppCompatActivity() {
+class DetailRestaurantActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailRestaurantBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,29 +21,24 @@ class   DetailRestaurantActivity : AppCompatActivity() {
 
         val sectionsPagerAdapter = SectionsPagerAdapterRestaurant(this)
         binding.viewPager.adapter = sectionsPagerAdapter
-        TabLayoutMediator(binding.tabs,binding.viewPager){tab, position ->
+        TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->
             tab.text = resources.getString(TAB_TITLES[position])
         }.attach()
 
         setToolbar()
     }
+
     private fun setToolbar() {
 
         supportActionBar!!.apply {
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
-            val text = "makanan murah meriah makanan murah meriah makanan murah meriah makanan murah meriah "
-            if(text.length>20){
-                setTitle("${ text.take(20) } ...") //
-            }
-            else{
-                setTitle(text) //
-            }
-
+            setTitle("Detail Restaurant")
             setBackgroundDrawable(ColorDrawable(Color.parseColor("#fefefe")))
             elevation = 0f
         }
     }
+
     companion object {
         @StringRes
         private val TAB_TITLES = intArrayOf(

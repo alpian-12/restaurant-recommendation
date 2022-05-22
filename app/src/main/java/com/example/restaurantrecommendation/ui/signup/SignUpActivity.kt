@@ -16,8 +16,8 @@ import com.example.restaurantrecommendation.ui.main.MainActivity
 class SignUpActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignUpBinding
-    private lateinit var ActionBar : ActionBar
-    @SuppressLint("ResourceAsColor")
+    private lateinit var ActionBar: ActionBar
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
@@ -26,12 +26,14 @@ class SignUpActivity : AppCompatActivity() {
         binding.login.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
         }
-        binding.btnSignup.setOnClickListener{
+
+        binding.btnSignup.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
 
         //hide action bar
         supportActionBar!!.hide()
+
 
     }
 }
