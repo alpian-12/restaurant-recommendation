@@ -12,6 +12,7 @@ import com.example.restaurantrecommendation.databinding.FragmentHomeBinding
 import com.example.restaurantrecommendation.ui.bottomsheet.CategoryBottomSheet
 import com.example.restaurantrecommendation.ui.bottomsheet.LocationBottomSheet
 import com.example.restaurantrecommendation.ui.category.CategoryActivity
+import com.example.restaurantrecommendation.ui.profile.ProfileActivity
 import com.example.restaurantrecommendation.ui.result.ResultActivity
 
 class HomeFragment : Fragment(), View.OnClickListener {
@@ -52,6 +53,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
             btnDrinks.setOnClickListener(this@HomeFragment)
             btnCoffee.setOnClickListener(this@HomeFragment)
             btnSeafood.setOnClickListener(this@HomeFragment)
+            ivProfile.setOnClickListener(this@HomeFragment)
         }
     }
 
@@ -109,6 +111,9 @@ class HomeFragment : Fragment(), View.OnClickListener {
                     Intent(activity, CategoryActivity::class.java)
                         .putExtra(CategoryActivity.CATEGORY_NAME, resources.getString(R.string.seafood))
                 )
+            }
+            R.id.iv_profile -> {
+                startActivity(Intent(activity, ProfileActivity::class.java))
             }
         }
     }
