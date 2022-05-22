@@ -113,4 +113,11 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="button_white" parent="Widget.AppCompat.Button">
+        <item name="android:textAppearance">@style/button_tab</item>
+        <item name="android:background">@drawable/btn_white</item>
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:textColor">@color/green</item>
+    </style>
+
 </resources>
