@@ -84,6 +84,8 @@
     <string name="depok">Depok</string>
     <string name="tangerang">Tangerang</string>
     <string name="bekasi">Bekasi</string>
+
+
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="log_in">Log in</string>
@@ -93,6 +95,8 @@
     <string name="google_image">google image</string>
     <string name="login">Login</string>
     <string name="full_name">Full name</string>
+    <string name="save">Save</string>
+    <string name="discard">Discard</string>
     <string name="password_confirmation">Password Confirmation</string>
     <string name="sign_in_with">---- Sign in with ----</string>
     <string name="already_have_an_account">Already have an account?</string>
@@ -115,6 +119,7 @@
         <item>@string/tangerang</item>
         <item>@string/bekasi</item>
     </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="restaurant_description">Restaurant Description</string>
