@@ -31,29 +31,29 @@
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <EditText
-            style="@style/field_text_input"
             android:id="@+id/et_name"
+            style="@style/field_text_input"
             android:layout_width="match_parent"
             android:layout_height="34dp"
             android:drawableStart="@drawable/ic_person_green"
             android:drawablePadding="12dp"
             android:hint="@string/full_name"
-            android:paddingHorizontal="15dp"
             android:importantForAutofill="no"
-            android:inputType="text" />
+            android:inputType="text"
+            android:paddingHorizontal="15dp" />
 
         <EditText
-            style="@style/field_text_input"
             android:id="@+id/et_email"
-            android:layout_marginTop="22dp"
+            style="@style/field_text_input"
             android:layout_width="match_parent"
             android:layout_height="34dp"
+            android:layout_marginTop="22dp"
             android:drawableStart="@drawable/ic_email"
             android:drawablePadding="12dp"
             android:hint="@string/email"
-            android:paddingHorizontal="15dp"
             android:importantForAutofill="no"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:paddingHorizontal="15dp" />
 
         <EditText
             android:id="@+id/et_password"
@@ -64,26 +64,26 @@
             android:drawableStart="@drawable/ic_lock"
             android:drawablePadding="12dp"
             android:hint="@string/password"
-            android:paddingHorizontal="15dp"
             android:importantForAutofill="no"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:paddingHorizontal="15dp" />
 
         <EditText
-            style="@style/field_text_input"
             android:id="@+id/et_password_confirmation"
+            style="@style/field_text_input"
             android:layout_width="match_parent"
             android:layout_height="34dp"
             android:layout_marginTop="22dp"
             android:drawableStart="@drawable/ic_lock"
             android:drawablePadding="12dp"
             android:hint="@string/password_confirmation"
-            android:paddingHorizontal="15dp"
             android:importantForAutofill="no"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword"
+            android:paddingHorizontal="15dp" />
 
         <Button
+            android:id="@+id/btn_signup"
             style="@style/button_green"
-            android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="34dp"
             android:layout_marginTop="39dp"
@@ -134,11 +134,11 @@
             android:text="@string/already_have_an_account" />
 
         <TextView
-            android:layout_marginLeft="7dp"
-            style="@style/paragraph_text"
             android:id="@+id/login"
+            style="@style/paragraph_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
             android:text="@string/log_in"
             android:textStyle="bold" />
     </LinearLayout>
