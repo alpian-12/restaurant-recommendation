@@ -8,16 +8,10 @@
 
     <com.google.android.material.appbar.AppBarLayout
         style="@style/toolbar"
+        android:layout_marginTop="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:liftOnScroll="true">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar"
-            style="@style/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:title="@string/title_result" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout_search"

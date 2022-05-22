@@ -81,7 +81,7 @@
         <Button
             style="@style/button_tab"
             android:textColor="@color/white"
-            android:id="@+id/btn_login"
+            android:id="@+id/btn_signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="39dp"

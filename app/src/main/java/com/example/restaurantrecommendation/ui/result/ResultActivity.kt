@@ -1,5 +1,7 @@
 package com.example.restaurantrecommendation.ui.result
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.restaurantrecommendation.databinding.ActivityResultBinding
@@ -16,13 +18,19 @@ class ResultActivity : AppCompatActivity() {
 
         setToolbar()
         binding.search.requestFocus()
+
+        //hide action bar
+
     }
 
     private fun setToolbar() {
-        setSupportActionBar(binding.topAppBar)
-        supportActionBar?.apply {
+
+        supportActionBar!!.apply {
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
+            setTitle("Result") // set the top title
+            setBackgroundDrawable(ColorDrawable(Color.parseColor("#fefefe")))
+            elevation = 0f
         }
     }
 

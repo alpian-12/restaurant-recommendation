@@ -24,7 +24,8 @@
         </activity>
         <activity
             android:name=".ui.detailrestaurant.DetailRestaurantActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Detailrestaurant"/>
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="false" />
