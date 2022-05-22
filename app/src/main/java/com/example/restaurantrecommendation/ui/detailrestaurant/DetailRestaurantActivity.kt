@@ -38,7 +38,10 @@ class DetailRestaurantActivity : AppCompatActivity() {
             elevation = 0f
         }
     }
-
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
     companion object {
         @StringRes
         private val TAB_TITLES = intArrayOf(
