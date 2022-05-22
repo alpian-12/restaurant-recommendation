@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.restaurantrecommendation.databinding.ActivitySignUpBinding
 import com.example.restaurantrecommendation.ui.login.LoginActivity
+import com.example.restaurantrecommendation.ui.main.MainActivity
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -17,6 +18,10 @@ class SignUpActivity : AppCompatActivity() {
 
         binding.login.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
+        }
+
+        binding.btnLogin.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 }

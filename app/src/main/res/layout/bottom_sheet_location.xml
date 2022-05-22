@@ -71,7 +71,7 @@
 
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/chip_group"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
+            style="@style/Widget.MyApp.Chip.Choice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"

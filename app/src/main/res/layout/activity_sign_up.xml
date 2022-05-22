@@ -29,63 +29,64 @@
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView">
+
         <EditText
+            style="@style/field_text_input"
+            android:id="@+id/et_name"
             android:layout_width="match_parent"
             android:layout_height="34dp"
-            android:background="@drawable/field_text_input"
             android:drawableStart="@drawable/ic_person_green"
             android:drawablePadding="12dp"
             android:hint="@string/full_name"
             android:paddingHorizontal="15dp"
-            style="@style/text_input"
             android:importantForAutofill="no"
             android:inputType="text" />
+
         <EditText
+            style="@style/field_text_input"
+            android:id="@+id/et_email"
             android:layout_marginTop="22dp"
             android:layout_width="match_parent"
             android:layout_height="34dp"
-            android:background="@drawable/field_text_input"
             android:drawableStart="@drawable/ic_email"
             android:drawablePadding="12dp"
             android:hint="@string/email"
             android:paddingHorizontal="15dp"
-            style="@style/text_input"
             android:importantForAutofill="no"
             android:inputType="textEmailAddress" />
 
         <EditText
+            android:id="@+id/et_password"
+            style="@style/field_text_input"
             android:layout_width="match_parent"
             android:layout_height="34dp"
             android:layout_marginTop="22dp"
-            android:background="@drawable/field_text_input"
             android:drawableStart="@drawable/ic_lock"
             android:drawablePadding="12dp"
             android:hint="@string/password"
             android:paddingHorizontal="15dp"
-            style="@style/text_input"
             android:importantForAutofill="no"
             android:inputType="textPassword" />
 
         <EditText
+            style="@style/field_text_input"
+            android:id="@+id/et_password_confirmation"
             android:layout_width="match_parent"
             android:layout_height="34dp"
             android:layout_marginTop="22dp"
-            android:background="@drawable/field_text_input"
             android:drawableStart="@drawable/ic_lock"
             android:drawablePadding="12dp"
             android:hint="@string/password_confirmation"
             android:paddingHorizontal="15dp"
-            style="@style/text_input"
             android:importantForAutofill="no"
             android:inputType="textPassword"/>
+
         <Button
-            style="@style/button_tab"
-            android:textColor="@color/white"
+            style="@style/button_green"
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="39dp"
-            android:background="@drawable/btn_login_signup"
             android:padding="0dp"
             android:text="@string/sign_up" />
 
