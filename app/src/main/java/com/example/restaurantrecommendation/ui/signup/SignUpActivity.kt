@@ -31,9 +31,6 @@ class SignUpActivity : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
         }
 
-        //hide action bar
-        supportActionBar!!.hide()
-
 
     }
 }

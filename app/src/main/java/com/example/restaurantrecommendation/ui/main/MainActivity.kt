@@ -24,7 +24,5 @@ class MainActivity : AppCompatActivity() {
 
         navView.setupWithNavController(navController)
 
-        //hide action bar
-        supportActionBar!!.hide()
     }
 }

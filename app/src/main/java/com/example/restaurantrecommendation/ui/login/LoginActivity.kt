@@ -17,8 +17,6 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //hide action bar
-        supportActionBar!!.hide()
         with(binding) {
             signup.setOnClickListener {
                 startActivity(Intent(this@LoginActivity, SignUpActivity::class.java))

@@ -29,13 +29,11 @@ class DetailRestaurantActivity : AppCompatActivity() {
     }
 
     private fun setToolbar() {
-
-        supportActionBar!!.apply {
+        setSupportActionBar(binding.topAppBar)
+        supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
-            setTitle("Detail Restaurant")
-            setBackgroundDrawable(ColorDrawable(Color.parseColor("#fefefe")))
-            elevation = 0f
+
         }
     }
     override fun onSupportNavigateUp(): Boolean {
