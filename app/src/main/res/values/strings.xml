@@ -136,4 +136,8 @@
     <string name="is_this_restaurant_halal">is this restaurant halal</string>
     <string name="share_your_experience_at_this_place">Share your experience at this place</string>
 
+    <string name="too_short">Password is too short</string>
+    <string name="invalid_email">Email is invalid</string>
+    <string name="must_fill">Field can\'t be empty</string>
+
 </resources>

@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
+        <entry key="../../../../layout/custom_preview.xml" value="0.1936450839328537" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.323" />
+=======
         <entry key="..\:/coastone insyaklklah/Restaurant-Recommendation-bangkitalpian/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.18" />
         <entry key="..\:/coastone insyaklklah/Restaurant-Recommendation-bangkitalpian/app/src/main/res/drawable/bg_bottom_sheet.xml" value="0.18" />
         <entry key="..\:/coastone insyaklklah/Restaurant-Recommendation-bangkitalpian/app/src/main/res/drawable/bg_search_view.xml" value="0.18" />
@@ -54,6 +58,7 @@
         <entry key="..\:/coastone insyaklklah/Restaurant-Recommendation-bangkitalpian/app/src/main/res/layout/item_category.xml" value="0.2210144927536232" />
         <entry key="..\:/coastone insyaklklah/Restaurant-Recommendation-bangkitalpian/app/src/main/res/layout/item_restaurant.xml" value="0.2210144927536232" />
         <entry key="..\:/coastone insyaklklah/Restaurant-Recommendation-bangkitalpian/app/src/main/res/layout/item_review.xml" value="0.2210144927536232" />
+>>>>>>> b2e4dd47936e1d0f3cc988371dbfefec2299b980
         <entry key="app/src/main/res/drawable/bg_bottom_sheet.xml" value="0.283" />
         <entry key="app/src/main/res/drawable/bg_button_category.xml" value="0.283" />
         <entry key="app/src/main/res/drawable/bg_chip.xml" value="0.193" />
@@ -62,7 +67,9 @@
         <entry key="app/src/main/res/drawable/btn_login_signup.xml" value="0.194" />
         <entry key="app/src/main/res/drawable/field_text_input.xml" value="0.194" />
         <entry key="app/src/main/res/drawable/ic_camera.xml" value="0.194" />
+        <entry key="app/src/main/res/drawable/ic_favorite.xml" value="0.323" />
         <entry key="app/src/main/res/drawable/ic_home.xml" value="0.283" />
+        <entry key="app/src/main/res/drawable/rounded_ditance.xml" value="0.323" />
         <entry key="app/src/main/res/layout/activity_category.xml" value="0.29713552800342025" />
         <entry key="app/src/main/res/layout/activity_detail_restaurant.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_edit_profile.xml" value="0.5" />

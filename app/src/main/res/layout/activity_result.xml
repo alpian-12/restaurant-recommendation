@@ -81,7 +81,6 @@
         android:id="@+id/rv_restaurant"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:itemCount="10"
         tools:listitem="@layout/item_restaurant" />
