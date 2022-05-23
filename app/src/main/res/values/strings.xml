@@ -130,9 +130,17 @@
     <string name="description2">Menyediakan makanan rumahan</string>
     <string name="_2km">2KM</string>
     <string name="_4_2">4.2</string>
+    <string name="review_caption">Review</string>
+    <string name="rate_and_review">Rate and review</string>
+    <string name="write_your_experience">Write Your Experience</string>
+    <string name="is_this_restaurant_halal">is this restaurant halal</string>
+    <string name="share_your_experience_at_this_place">Share your experience at this place</string>
 
     <string name="too_short">Password is too short</string>
     <string name="invalid_email">Email is invalid</string>
     <string name="must_fill">Field can\'t be empty</string>
+    <string name="are_you_sure_you_want_to_exit">Are you sure you want to exit ?</string>
+    <string name="cencel">Cencel</string>
+    <string name="ok">ok</string>
 
 </resources>
