@@ -118,6 +118,8 @@
         <item name="android:textAppearance">@style/button_tab</item>
         <item name="android:background">@drawable/btn_login_signup</item>
         <item name="android:textColor">@color/white</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
     </style>
 
     <style name="button_white" parent="Widget.AppCompat.Button">
