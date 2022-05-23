@@ -31,7 +31,7 @@
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
-        <EditText
+        <com.example.restaurantrecommendation.ui.customview.MyEditText
             style="@style/field_text_input"
             android:paddingHorizontal="15dp"
             android:layout_width="match_parent"
@@ -42,7 +42,7 @@
             android:importantForAutofill="no"
             android:inputType="textEmailAddress" />
 
-        <EditText
+        <com.example.restaurantrecommendation.ui.customview.MyEditText
             style="@style/field_text_input"
             android:layout_marginTop="22dp"
             android:paddingHorizontal="15dp"

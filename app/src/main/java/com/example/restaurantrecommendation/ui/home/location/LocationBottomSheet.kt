@@ -1,4 +1,4 @@
-package com.example.restaurantrecommendation.ui.bottomsheet
+package com.example.restaurantrecommendation.ui.home.location
 
 import android.os.Bundle
 import android.view.LayoutInflater

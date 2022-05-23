@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.restaurantrecommendation.R
 import com.example.restaurantrecommendation.databinding.FragmentHomeBinding
-import com.example.restaurantrecommendation.ui.bottomsheet.CategoryBottomSheet
-import com.example.restaurantrecommendation.ui.bottomsheet.LocationBottomSheet
+import com.example.restaurantrecommendation.ui.home.category.CategoryBottomSheet
+import com.example.restaurantrecommendation.ui.home.location.LocationBottomSheet
 import com.example.restaurantrecommendation.ui.category.CategoryActivity
 import com.example.restaurantrecommendation.ui.profile.ProfileActivity
 import com.example.restaurantrecommendation.ui.result.ResultActivity
