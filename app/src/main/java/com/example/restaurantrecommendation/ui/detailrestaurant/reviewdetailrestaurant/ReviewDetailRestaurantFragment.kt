@@ -1,6 +1,5 @@
 package com.example.restaurantrecommendation.ui.detailrestaurant.reviewdetailrestaurant
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,15 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.example.restaurantrecommendation.R
-import com.example.restaurantrecommendation.databinding.FragmentHomeBinding
 import com.example.restaurantrecommendation.databinding.FragmentReviewDetailRestaurantBinding
-import com.example.restaurantrecommendation.ui.bottomsheet.CategoryBottomSheet
 import com.example.restaurantrecommendation.ui.bottomsheet.InputReviewBottomSheet
-import com.example.restaurantrecommendation.ui.bottomsheet.LocationBottomSheet
-import com.example.restaurantrecommendation.ui.category.CategoryActivity
-import com.example.restaurantrecommendation.ui.home.HomeViewModel
-import com.example.restaurantrecommendation.ui.profile.ProfileActivity
-import com.example.restaurantrecommendation.ui.result.ResultActivity
+
 
 class ReviewDetailRestaurantFragment : Fragment(), View.OnClickListener {
     // TODO: Rename and change types of parameters

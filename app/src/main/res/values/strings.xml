@@ -139,5 +139,8 @@
     <string name="too_short">Password is too short</string>
     <string name="invalid_email">Email is invalid</string>
     <string name="must_fill">Field can\'t be empty</string>
+    <string name="are_you_sure_you_want_to_exit">Are you sure you want to exit ?</string>
+    <string name="cencel">Cencel</string>
+    <string name="ok">ok</string>
 
 </resources>

@@ -94,7 +94,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/halal_checkded_selector"
             android:button="@null"
-            android:paddingHorizontal="18dp"
+            android:paddingHorizontal="20dp"
             android:paddingVertical="4dp"
             android:text="Halal"
             android:textColor="@drawable/halal_selector_text" />
@@ -107,7 +107,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/nonhalal_check_selector"
             android:button="@null"
-            android:paddingHorizontal="18dp"
+            android:paddingHorizontal="20dp"
             android:paddingVertical="4dp"
             android:text="Non Halal"
             android:textColor="@drawable/nonhalal_selector_text" />
