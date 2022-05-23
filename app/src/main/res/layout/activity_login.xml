@@ -34,10 +34,7 @@
         <com.example.restaurantrecommendation.ui.customview.MyEditText
             style="@style/field_text_input"
             android:paddingHorizontal="15dp"
-            android:layout_width="match_parent"
-            android:layout_height="34dp"
             android:drawableStart="@drawable/ic_email"
-            android:drawablePadding="12dp"
             android:hint="@string/email"
             android:importantForAutofill="no"
             android:inputType="textEmailAddress" />
@@ -46,10 +43,7 @@
             style="@style/field_text_input"
             android:layout_marginTop="22dp"
             android:paddingHorizontal="15dp"
-            android:layout_width="match_parent"
-            android:layout_height="34dp"
             android:drawableStart="@drawable/ic_lock"
-            android:drawablePadding="12dp"
             android:hint="@string/password"
             android:inputType="textPassword"
             android:importantForAutofill="no" />
