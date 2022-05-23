@@ -1,7 +1,10 @@
 package com.example.restaurantrecommendation.ui.detailrestaurant
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.annotation.StringRes
 import com.example.restaurantrecommendation.R
 import com.example.restaurantrecommendation.adapter.SectionsPagerAdapterRestaurant
@@ -18,13 +21,25 @@ class DetailRestaurantActivity : AppCompatActivity() {
 
         val sectionsPagerAdapter = SectionsPagerAdapterRestaurant(this)
         binding.viewPager.adapter = sectionsPagerAdapter
-        TabLayoutMediator(binding.tabs,binding.viewPager){tab, position ->
+        TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->
             tab.text = resources.getString(TAB_TITLES[position])
         }.attach()
 
-        supportActionBar?.elevation = 0f
+        setToolbar()
     }
 
+    private fun setToolbar() {
+        setSupportActionBar(binding.topAppBar)
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+
+        }
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
     companion object {
         @StringRes
         private val TAB_TITLES = intArrayOf(
