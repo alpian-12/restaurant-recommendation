@@ -1,4 +1,6 @@
 package com.example.restaurantrecommendation.ui.detailrestaurant.reviewdetailrestaurant
 
-class ReviewRestaurantViewModel {
+import androidx.lifecycle.ViewModel
+
+class ReviewRestaurantViewModel  : ViewModel() {
 }

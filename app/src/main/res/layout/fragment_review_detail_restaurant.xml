@@ -1,13 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.detailrestaurant.reviewdetailrestaurant.ReviewDetailRestaurantFragment">
 
- <androidx.recyclerview.widget.RecyclerView
+    <TextView
+
+        style="@style/secondary_text_caption"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/item_review"/>
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="10dp"
+        android:text="@string/rate_and_review" />
 
-</FrameLayout>
+    <LinearLayout
+        android:id="@+id/linearlayoutrate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/idrate"
+        android:gravity="center|left"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="19dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageperson"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/person" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_star_border_rate" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_star_border_rate" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_star_border_rate" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_star_border_rate" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_star_border_rate" />
+    </LinearLayout>
+
+
+    <TextView
+
+        style="@style/secondary_text_caption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="10dp"
+        android:text="@string/rate_and_review" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/item_review" />
+</LinearLayout>
