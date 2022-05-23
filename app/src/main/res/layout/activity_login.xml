@@ -31,25 +31,19 @@
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
-        <EditText
+        <com.example.restaurantrecommendation.ui.customview.MyEditText
             style="@style/field_text_input"
             android:paddingHorizontal="15dp"
-            android:layout_width="match_parent"
-            android:layout_height="34dp"
             android:drawableStart="@drawable/ic_email"
-            android:drawablePadding="12dp"
             android:hint="@string/email"
             android:importantForAutofill="no"
             android:inputType="textEmailAddress" />
 
-        <EditText
+        <com.example.restaurantrecommendation.ui.customview.MyEditText
             style="@style/field_text_input"
             android:layout_marginTop="22dp"
             android:paddingHorizontal="15dp"
-            android:layout_width="match_parent"
-            android:layout_height="34dp"
             android:drawableStart="@drawable/ic_lock"
-            android:drawablePadding="12dp"
             android:hint="@string/password"
             android:inputType="textPassword"
             android:importantForAutofill="no" />
@@ -57,8 +51,6 @@
         <Button
             style="@style/button_green"
             android:id="@+id/btn_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_marginTop="39dp"
             android:text="@string/log_in"
             />

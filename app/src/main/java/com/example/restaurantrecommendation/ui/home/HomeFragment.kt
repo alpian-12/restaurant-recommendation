@@ -7,10 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.restaurantrecommendation.R
+import com.example.restaurantrecommendation.adapter.RestaurantAdapter
 import com.example.restaurantrecommendation.databinding.FragmentHomeBinding
-import com.example.restaurantrecommendation.ui.bottomsheet.CategoryBottomSheet
-import com.example.restaurantrecommendation.ui.bottomsheet.LocationBottomSheet
+import com.example.restaurantrecommendation.model.Restaurant
+import com.example.restaurantrecommendation.ui.home.category.CategoryBottomSheet
+import com.example.restaurantrecommendation.ui.home.location.LocationBottomSheet
 import com.example.restaurantrecommendation.ui.category.CategoryActivity
 import com.example.restaurantrecommendation.ui.profile.ProfileActivity
 import com.example.restaurantrecommendation.ui.result.ResultActivity
@@ -39,6 +42,26 @@ class HomeFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
 
         setOnClickListener()
+
+        showRecyclerView()
+    }
+
+    private fun showRecyclerView() {
+        val list = ArrayList<Restaurant>()
+
+        list.add(Restaurant("Restoran murah"))
+        list.add(Restaurant("Restoran mahal"))
+        list.add(Restaurant("Restoran murah"))
+        list.add(Restaurant("Restoran mahal"))
+        list.add(Restaurant("Restoran murah"))
+        list.add(Restaurant("Restoran mahal"))
+        list.add(Restaurant("Restoran murah"))
+        list.add(Restaurant("Restoran mahal"))
+
+        with(binding.rvRestaurant) {
+            layoutManager = LinearLayoutManager(binding.root.context)
+            adapter = RestaurantAdapter(list)
+        }
     }
 
     private fun setOnClickListener() {
