@@ -9,6 +9,7 @@
     android:paddingStart="@dimen/activity_horizontal_margin"
     android:paddingEnd="64dp"
     android:weightSum="2"
+    style="@style/layout"
     tools:context=".ui.detailrestaurant.descriptiondetailrestaurant.DescriptionRestaurantFragment">
 
 
