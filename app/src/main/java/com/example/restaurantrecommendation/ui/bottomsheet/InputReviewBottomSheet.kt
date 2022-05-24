@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.restaurantrecommendation.databinding.BottomSheetInputReviewBinding
+import com.example.restaurantrecommendation.ui.detailrestaurant.reviewdetailrestaurant.ReviewDetailRestaurantFragment
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
@@ -37,6 +38,11 @@ class InputReviewBottomSheet : BottomSheetDialogFragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val args = Bundle()
+        args.putString("key"," rating.toString()")
+        val reviewDetailRestaurantFragment = ReviewDetailRestaurantFragment()
+        reviewDetailRestaurantFragment.arguments = args
 
     }
 
