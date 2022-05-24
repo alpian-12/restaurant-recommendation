@@ -1,23 +1,24 @@
 package com.example.restaurantrecommendation.ui.detailrestaurant.reviewdetailrestaurant
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RatingBar
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.restaurantrecommendation.R
 import com.example.restaurantrecommendation.databinding.FragmentReviewDetailRestaurantBinding
 import com.example.restaurantrecommendation.ui.bottomsheet.InputReviewBottomSheet
 
 
-class ReviewDetailRestaurantFragment : Fragment(), View.OnClickListener {
+class ReviewDetailRestaurantFragment : Fragment(),
+    RatingBar.OnRatingBarChangeListener {
     // TODO: Rename and change types of parameters
     private var _binding: FragmentReviewDetailRestaurantBinding? = null
     private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
 
     }
 
@@ -37,27 +38,35 @@ class ReviewDetailRestaurantFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        setOnClickListener()
+        setOnRatingBarChangeListener()
     }
 
-    private fun setOnClickListener() {
+    @SuppressLint("ClickableViewAccessibility")
+    private fun setOnRatingBarChangeListener() {
         with(binding) {
-            linearlayoutrate.setOnClickListener(this@ReviewDetailRestaurantFragment)
 
+            ratingbarrate.setOnRatingBarChangeListener(this@ReviewDetailRestaurantFragment)
+        }
+
+        if(binding.ratingbarrate.rating != 0.0f){
+            binding.ratingbarrate.rating = 0.0f
         }
     }
 
-    override fun onClick(view: View?) {
-        when (view?.id) {
-            R.id.linearlayoutrate -> {
-                val inputReviewBottomSheet = InputReviewBottomSheet()
-                inputReviewBottomSheet.show(parentFragmentManager, InputReviewBottomSheet.TAG)
-            }
-        }
-    }
+
 
     companion object {
 
     }
+
+    override fun onRatingChanged(ratingBar: RatingBar?, rating: Float, fromUser: Boolean) {
+        val args = Bundle()
+        args.putString("key", rating.toString())
+        val inputReviewBottomSheet = InputReviewBottomSheet()
+        inputReviewBottomSheet.arguments = args
+        inputReviewBottomSheet.show(parentFragmentManager, InputReviewBottomSheet.TAG)
+        onDestroy()
+    }
+
+
 }
