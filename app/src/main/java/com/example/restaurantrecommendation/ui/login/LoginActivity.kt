@@ -22,9 +22,7 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(Intent(this@LoginActivity, SignUpActivity::class.java))
             }
 
-            btnLogin.setOnClickListener {
-                startActivity(Intent(this@LoginActivity, DetailRestaurantActivity::class.java))
-            }
+
         }
     }
 }
