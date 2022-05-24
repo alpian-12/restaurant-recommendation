@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:paddingHorizontal="@dimen/activity_horizontal_margin"
     android:orientation="vertical"
-    style="@style/layout"
+    style="@style/AppBottomSheetDialogTheme"
     >
 
     <View
