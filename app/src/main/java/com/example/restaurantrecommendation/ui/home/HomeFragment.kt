@@ -89,7 +89,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
     override fun onClick(view: View?) {
         when(view?.id) {
             R.id.btn_camera -> {
-                launcherIntentCameraX.launch(Intent(activity, CameraActivity::class.java))
+                startActivity(Intent(activity, CameraActivity::class.java))
             }
             R.id.tv_your_location -> {
                 val locationBottomSheet = LocationBottomSheet()
@@ -147,20 +147,6 @@ class HomeFragment : Fragment(), View.OnClickListener {
             R.id.iv_profile -> {
                 startActivity(Intent(activity, ProfileActivity::class.java))
             }
-        }
-    }
-
-    private val launcherIntentCameraX = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) {
-        if (it.resultCode == CameraActivity.CAMERA_X_RESULT) {
-            val myFile = it.data?.getSerializableExtra("picture") as File
-            val isBackCamera = it.data?.getBooleanExtra("isBackCamera", true) as Boolean
-
-            val result = rotateBitmap(
-                BitmapFactory.decodeFile(myFile.path),
-                isBackCamera
-            )
         }
     }
 

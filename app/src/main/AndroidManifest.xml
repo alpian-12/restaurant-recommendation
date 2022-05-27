@@ -4,6 +4,7 @@
     package="com.example.restaurantrecommendation">
 
     <uses-feature android:name="android.hardware.camera" />
+
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
@@ -17,6 +18,9 @@
         android:theme="@style/Theme.RestaurantRecommendation"
         tools:targetApi="31">
         <activity
+            android:name=".ui.camera.CameraPreviewActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.camera.CameraActivity"
             android:exported="false" />
         <activity
@@ -27,7 +31,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.signup.SignUpActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".ui.detailrestaurant.DetailRestaurantActivity"
             android:exported="false"
