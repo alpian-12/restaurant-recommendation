@@ -145,5 +145,6 @@
     <string name="use_camera">Use Onigiri\'s camera</string>
     <string name="use_camera_description">Take photos with the Onigiri app to recognize your food.</string>
     <string name="turn_on">Turn on</string>
+    <string name="adjust_angle">Please align the food to be identified.</string>
 
 </resources>

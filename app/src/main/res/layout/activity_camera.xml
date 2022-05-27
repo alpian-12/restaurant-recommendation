@@ -49,6 +49,17 @@
 
     </LinearLayout>
 
+    <TextView
+        style="@style/list_item_important_text_snippet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/adjust_angle"
+        android:textColor="@color/grey_light"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_capture"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <ImageButton
         android:id="@+id/btn_capture"
         android:layout_width="80dp"
