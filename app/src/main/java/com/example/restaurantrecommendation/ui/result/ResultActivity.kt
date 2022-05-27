@@ -1,11 +1,17 @@
 package com.example.restaurantrecommendation.ui.result
 
+import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.restaurantrecommendation.adapter.RestaurantAdapter
 import com.example.restaurantrecommendation.databinding.ActivityResultBinding
 import com.example.restaurantrecommendation.model.Restaurant
+import com.example.restaurantrecommendation.ui.camera.CameraActivity
+import com.example.restaurantrecommendation.util.rotateBitmap
+import java.io.File
 
 class ResultActivity : AppCompatActivity() {
 
@@ -19,6 +25,10 @@ class ResultActivity : AppCompatActivity() {
 
         setToolbar()
         binding.search.requestFocus()
+
+        binding.btnCamera.setOnClickListener {
+            launcherIntentCameraX.launch(Intent(this, CameraActivity::class.java))
+        }
 
         showRecyclerView()
     }
@@ -52,5 +62,19 @@ class ResultActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
+    }
+
+    private val launcherIntentCameraX = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) {
+        if (it.resultCode == CameraActivity.CAMERA_X_RESULT) {
+            val myFile = it.data?.getSerializableExtra("picture") as File
+            val isBackCamera = it.data?.getBooleanExtra("isBackCamera", true) as Boolean
+
+            val result = rotateBitmap(
+                BitmapFactory.decodeFile(myFile.path),
+                isBackCamera
+            )
+        }
     }
 }

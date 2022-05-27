@@ -1,10 +1,12 @@
 package com.example.restaurantrecommendation.ui.home
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,11 +14,14 @@ import com.example.restaurantrecommendation.R
 import com.example.restaurantrecommendation.adapter.RestaurantAdapter
 import com.example.restaurantrecommendation.databinding.FragmentHomeBinding
 import com.example.restaurantrecommendation.model.Restaurant
+import com.example.restaurantrecommendation.ui.camera.CameraActivity
 import com.example.restaurantrecommendation.ui.home.category.CategoryBottomSheet
 import com.example.restaurantrecommendation.ui.home.location.LocationBottomSheet
 import com.example.restaurantrecommendation.ui.category.CategoryActivity
 import com.example.restaurantrecommendation.ui.profile.ProfileActivity
 import com.example.restaurantrecommendation.ui.result.ResultActivity
+import com.example.restaurantrecommendation.util.rotateBitmap
+import java.io.File
 
 class HomeFragment : Fragment(), View.OnClickListener {
 
@@ -69,6 +74,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
             tvYourLocation.setOnClickListener(this@HomeFragment)
             tvInput.setOnClickListener(this@HomeFragment)
             btnMore.setOnClickListener(this@HomeFragment)
+            btnCamera.setOnClickListener(this@HomeFragment)
             btnSweets.setOnClickListener(this@HomeFragment)
             btnRice.setOnClickListener(this@HomeFragment)
             btnMeatball.setOnClickListener(this@HomeFragment)
@@ -82,6 +88,9 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(view: View?) {
         when(view?.id) {
+            R.id.btn_camera -> {
+                launcherIntentCameraX.launch(Intent(activity, CameraActivity::class.java))
+            }
             R.id.tv_your_location -> {
                 val locationBottomSheet = LocationBottomSheet()
                 locationBottomSheet.show(parentFragmentManager, LocationBottomSheet.TAG)
@@ -138,6 +147,20 @@ class HomeFragment : Fragment(), View.OnClickListener {
             R.id.iv_profile -> {
                 startActivity(Intent(activity, ProfileActivity::class.java))
             }
+        }
+    }
+
+    private val launcherIntentCameraX = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) {
+        if (it.resultCode == CameraActivity.CAMERA_X_RESULT) {
+            val myFile = it.data?.getSerializableExtra("picture") as File
+            val isBackCamera = it.data?.getBooleanExtra("isBackCamera", true) as Boolean
+
+            val result = rotateBitmap(
+                BitmapFactory.decodeFile(myFile.path),
+                isBackCamera
+            )
         }
     }
 
