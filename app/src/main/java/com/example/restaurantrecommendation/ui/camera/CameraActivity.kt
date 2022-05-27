@@ -45,6 +45,8 @@ class CameraActivity : AppCompatActivity() {
         } else {
             startCamera()
         }
+
+        binding.btnCapture.setOnClickListener { takePhoto() }
     }
 
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
@@ -102,5 +104,9 @@ class CameraActivity : AppCompatActivity() {
                 Log.e("startCamera", "startCamera() failed", exc)
             }
         }, ContextCompat.getMainExecutor(this))
+    }
+
+    private fun takePhoto() {
+
     }
 }
