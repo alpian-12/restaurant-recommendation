@@ -70,11 +70,6 @@ class ResultActivity : AppCompatActivity() {
         if (it.resultCode == CameraActivity.CAMERA_X_RESULT) {
             val myFile = it.data?.getSerializableExtra("picture") as File
             val isBackCamera = it.data?.getBooleanExtra("isBackCamera", true) as Boolean
-
-            val result = rotateBitmap(
-                BitmapFactory.decodeFile(myFile.path),
-                isBackCamera
-            )
         }
     }
 }

@@ -17,14 +17,8 @@ class CameraPreviewActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val myFile = intent.getSerializableExtra("picture") as File
-        val isBackCamera = intent.getBooleanExtra("isBackCamera", true)
 
-        val result = rotateBitmap(
-            BitmapFactory.decodeFile(myFile.path),
-            true
-        )
-
-        binding.ivFood.setImageBitmap(result)
+        binding.ivFood.setImageBitmap(BitmapFactory.decodeFile(myFile.path))
 
 
     }

@@ -50,6 +50,7 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/tv_adjust_angle"
         style="@style/list_item_important_text_snippet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

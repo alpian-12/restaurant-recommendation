@@ -147,5 +147,6 @@
     <string name="turn_on">Turn on</string>
     <string name="adjust_angle">Please align the food to be identified.</string>
     <string name="error_capture_image">Failed to capture image</string>
+    <string name="detecting">Detecting...</string>
 
 </resources>

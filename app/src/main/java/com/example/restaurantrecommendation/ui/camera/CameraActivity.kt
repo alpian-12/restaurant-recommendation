@@ -20,10 +20,13 @@ import androidx.core.view.isVisible
 import com.example.restaurantrecommendation.R
 import com.example.restaurantrecommendation.databinding.ActivityCameraBinding
 import com.example.restaurantrecommendation.util.createFile
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
 
 class CameraActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCameraBinding
+    private lateinit var cameraExecutor: ExecutorService
 
     private var cameraSelector: CameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
     private var imageCapture: ImageCapture? = null
@@ -40,6 +43,8 @@ class CameraActivity : AppCompatActivity() {
         binding = ActivityCameraBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        cameraExecutor = Executors.newSingleThreadExecutor()
+
         if (!allPermissionsGranted()) {
             ActivityCompat.requestPermissions(
                 this,
@@ -47,6 +52,7 @@ class CameraActivity : AppCompatActivity() {
                 REQUEST_CODE_PERMISSIONS
             )
         } else {
+            binding.tvAdjustAngle.isVisible = true
             startCamera()
         }
 
@@ -69,6 +75,7 @@ class CameraActivity : AppCompatActivity() {
             } else {
                 binding.apply {
                     permissionDesc.isVisible = true
+                    tvAdjustAngle.isVisible = false
                     permissionDesc.setOnClickListener {
                         startActivity(
                             Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
@@ -116,6 +123,7 @@ class CameraActivity : AppCompatActivity() {
         val photoFile = createFile(application)
 
         val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
+
         imageCapture.takePicture(
             outputOptions,
             ContextCompat.getMainExecutor(this),
@@ -131,13 +139,19 @@ class CameraActivity : AppCompatActivity() {
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                     val intent = Intent(this@CameraActivity, CameraPreviewActivity::class.java)
                     intent.putExtra("picture", photoFile)
-                    intent.putExtra(
-                        "isBackCamera",
-                        cameraSelector == CameraSelector.DEFAULT_BACK_CAMERA
-                    )
                     startActivity(intent)
                 }
             }
         )
+    }
+
+    public override fun onResume() {
+        super.onResume()
+        startCamera()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        cameraExecutor.shutdown()
     }
 }
