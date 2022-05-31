@@ -2,9 +2,9 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    style="@style/layout"
     tools:context=".ui.home.HomeFragment">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -83,12 +83,12 @@
                     android:gravity="center_vertical"
                     android:text="@string/hint_search"
                     android:textColor="@color/grey_light"
+                    app:drawableStartCompat="@drawable/ic_search"
+                    app:drawableTint="@color/green"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/view"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:drawableStartCompat="@drawable/ic_search"
-                    app:drawableTint="@color/green" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <View
                     android:id="@+id/view"
@@ -120,314 +120,347 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.core.widget.NestedScrollView
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swiperefreshhome"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:overScrollMode="never"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:swipeRefreshLayoutProgressSpinnerBackgroundColor="@color/green">
 
-        <LinearLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
-
-            <TextView
-                android:id="@+id/tv_category"
-                style="@style/list_item_important_text_snippet"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="@dimen/activity_horizontal_margin"
-                android:text="@string/category" />
-
-            <com.google.android.flexbox.FlexboxLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="10dp"
-                android:paddingHorizontal="@dimen/activity_horizontal_margin"
-                app:justifyContent="space_between">
-
-                <LinearLayout
-                    android:id="@+id/btn_sweets"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_margin="2dp"
-                        app:cardCornerRadius="7dp">
-
-                        <ImageView
-                            style="@style/category"
-                            android:src="@drawable/c_sweets"
-                            android:contentDescription="@string/foto_deskripsi" />
-
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        style="@style/secondary_text_caption"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/sweets" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/btn_rice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_margin="2dp"
-                        app:cardCornerRadius="7dp">
-
-                        <ImageView
-                            style="@style/category"
-                            android:src="@drawable/c_rice"
-                            android:contentDescription="@string/foto_deskripsi" />
-
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        style="@style/secondary_text_caption"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/rice" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/btn_meatball"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_margin="2dp"
-                        app:cardCornerRadius="7dp">
-
-                        <ImageView
-                            style="@style/category"
-                            android:src="@drawable/c_meatball"
-                            android:contentDescription="@string/foto_deskripsi" />
-
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        style="@style/secondary_text_caption"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/meatball" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/btn_chicken"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_margin="2dp"
-                        app:cardCornerRadius="7dp">
-
-                        <ImageView
-                            style="@style/category"
-                            android:src="@drawable/c_chicken"
-                            android:contentDescription="@string/foto_deskripsi" />
-
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        style="@style/secondary_text_caption"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/chicken" />
-
-                </LinearLayout>
-
-            </com.google.android.flexbox.FlexboxLayout>
-
-            <com.google.android.flexbox.FlexboxLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="10dp"
-                android:paddingHorizontal="@dimen/activity_horizontal_margin"
-                app:justifyContent="space_between">
-
-                <LinearLayout
-                    android:id="@+id/btn_drinks"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_margin="2dp"
-                        app:cardCornerRadius="7dp">
-
-                        <ImageView
-                            style="@style/category"
-                            android:src="@drawable/c_drinks"
-                            android:contentDescription="@string/foto_deskripsi" />
-
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        style="@style/secondary_text_caption"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/drinks" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/btn_coffee"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_margin="2dp"
-                        app:cardCornerRadius="7dp">
-
-                        <ImageView
-                            style="@style/category"
-                            android:src="@drawable/c_coffee"
-                            android:contentDescription="@string/foto_deskripsi" />
-
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        style="@style/secondary_text_caption"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/coffee" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/btn_seafood"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_margin="2dp"
-                        app:cardCornerRadius="7dp">
-
-                        <ImageView
-                            style="@style/category"
-                            android:src="@drawable/c_seafood"
-                            android:contentDescription="@string/foto_deskripsi" />
-
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        style="@style/secondary_text_caption"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/seafood" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/btn_more"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_margin="2dp"
-                        app:cardCornerRadius="7dp">
-
-                        <ImageView
-                            style="@style/category"
-                            android:layout_width="30dp"
-                            android:src="@drawable/ic_more"
-                            android:contentDescription="@string/foto_deskripsi" />
-
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        style="@style/secondary_text_caption"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/more" />
-
-                </LinearLayout>
-
-            </com.google.android.flexbox.FlexboxLayout>
-
-
-            <TextView
-                android:id="@+id/tv_recommendation"
-                style="@style/list_item_important_text_snippet"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:paddingHorizontal="@dimen/activity_horizontal_margin"
-                android:text="@string/recommendations" />
+            android:overScrollMode="never">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_restaurant"
+                <TextView
+                    android:id="@+id/tv_category"
+                    style="@style/list_item_important_text_snippet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/activity_horizontal_margin"
+                    android:text="@string/category" />
+
+                <com.google.android.flexbox.FlexboxLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
                     android:layout_marginTop="10dp"
-                    android:overScrollMode="never"
-                    android:paddingBottom="?actionBarSize"
-                    tools:listitem="@layout/item_restaurant"
-                    android:nestedScrollingEnabled="false"/>
+                    android:paddingHorizontal="@dimen/activity_horizontal_margin"
+                    app:justifyContent="space_between">
+
+                    <LinearLayout
+                        android:id="@+id/btn_sweets"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_margin="2dp"
+                            app:cardCornerRadius="7dp">
+
+                            <ImageView
+                                style="@style/category"
+                                android:contentDescription="@string/foto_deskripsi"
+                                android:src="@drawable/c_sweets" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            style="@style/secondary_text_caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/sweets" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btn_rice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_margin="2dp"
+                            app:cardCornerRadius="7dp">
+
+                            <ImageView
+                                style="@style/category"
+                                android:contentDescription="@string/foto_deskripsi"
+                                android:src="@drawable/c_rice" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            style="@style/secondary_text_caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/rice" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btn_meatball"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_margin="2dp"
+                            app:cardCornerRadius="7dp">
+
+                            <ImageView
+                                style="@style/category"
+                                android:contentDescription="@string/foto_deskripsi"
+                                android:src="@drawable/c_meatball" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            style="@style/secondary_text_caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/meatball" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btn_chicken"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_margin="2dp"
+                            app:cardCornerRadius="7dp">
+
+                            <ImageView
+                                style="@style/category"
+                                android:contentDescription="@string/foto_deskripsi"
+                                android:src="@drawable/c_chicken" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            style="@style/secondary_text_caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/chicken" />
+
+                    </LinearLayout>
+
+                </com.google.android.flexbox.FlexboxLayout>
+
+                <com.google.android.flexbox.FlexboxLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingHorizontal="@dimen/activity_horizontal_margin"
+                    app:justifyContent="space_between">
+
+                    <LinearLayout
+                        android:id="@+id/btn_drinks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_margin="2dp"
+                            app:cardCornerRadius="7dp">
+
+                            <ImageView
+                                style="@style/category"
+                                android:contentDescription="@string/foto_deskripsi"
+                                android:src="@drawable/c_drinks" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            style="@style/secondary_text_caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/drinks" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btn_coffee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_margin="2dp"
+                            app:cardCornerRadius="7dp">
+
+                            <ImageView
+                                style="@style/category"
+                                android:contentDescription="@string/foto_deskripsi"
+                                android:src="@drawable/c_coffee" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            style="@style/secondary_text_caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/coffee" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btn_seafood"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_margin="2dp"
+                            app:cardCornerRadius="7dp">
+
+                            <ImageView
+                                style="@style/category"
+                                android:contentDescription="@string/foto_deskripsi"
+                                android:src="@drawable/c_seafood" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            style="@style/secondary_text_caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/seafood" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/btn_more"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_margin="2dp"
+                            app:cardCornerRadius="7dp">
+
+                            <ImageView
+                                style="@style/category"
+                                android:layout_width="30dp"
+                                android:contentDescription="@string/foto_deskripsi"
+                                android:src="@drawable/ic_more" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            style="@style/secondary_text_caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/more" />
+
+                    </LinearLayout>
+
+                </com.google.android.flexbox.FlexboxLayout>
+
+
+                <TextView
+                    android:id="@+id/tv_recommendation"
+                    style="@style/list_item_important_text_snippet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:paddingHorizontal="@dimen/activity_horizontal_margin"
+                    android:text="@string/recommendations" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:id="@+id/notfoundhome"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/foto_deskripsi"
+                        android:scaleType="fitStart"
+                        android:src="@drawable/notfound"
+                        tools:layout_editor_absoluteX="0dp" />
+
+                    <ProgressBar
+                        android:id="@+id/progresbarHome"
+                        android:visibility="invisible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_restaurant"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:nestedScrollingEnabled="false"
+                        android:overScrollMode="never"
+                        android:paddingBottom="?actionBarSize"
+                        android:visibility="invisible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:listitem="@layout/item_restaurant" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
             </LinearLayout>
 
-        </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
 
-    </androidx.core.widget.NestedScrollView>
+        <FrameLayout
+            android:id="@+id/standard_bottom_sheet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior" />
 
-    <FrameLayout
-        android:id="@+id/standard_bottom_sheet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,6 +1,7 @@
 package com.example.restaurantrecommendation.ui.profile
 
 import android.app.AlertDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import android.widget.Button
 import com.example.restaurantrecommendation.R
 import com.example.restaurantrecommendation.databinding.ActivityProfileBinding
 import com.example.restaurantrecommendation.databinding.DialogQuitBinding
+import com.example.restaurantrecommendation.ui.profile.editprofile.EditProfileActivity
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -57,6 +59,10 @@ class ProfileActivity : AppCompatActivity() {
                 dialog.dismiss()
             }
 
+        }
+
+        binding.menuEditProfile.setOnClickListener {
+            startActivity(Intent(this@ProfileActivity,EditProfileActivity::class.java))
         }
         setToolbar()
     }

@@ -83,6 +83,9 @@ class HomeFragment : Fragment(), View.OnClickListener {
             btnCoffee.setOnClickListener(this@HomeFragment)
             btnSeafood.setOnClickListener(this@HomeFragment)
             ivProfile.setOnClickListener(this@HomeFragment)
+            swiperefreshhome.setOnRefreshListener {
+                swiperefreshhome.isRefreshing = false   
+            }
         }
     }
 

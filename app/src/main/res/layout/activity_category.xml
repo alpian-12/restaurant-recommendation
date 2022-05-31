@@ -21,12 +21,45 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_restaurant"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingHorizontal="@dimen/activity_horizontal_margin"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        android:id="@+id/swiperefreshcategory"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_restaurant"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="@dimen/activity_horizontal_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="visible"/>
+
+            <ImageView
+                android:src="@drawable/notfound"
+                android:id="@+id/categorynotfound"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="invisible"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
