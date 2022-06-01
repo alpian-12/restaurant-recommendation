@@ -150,7 +150,7 @@
     <string name="detecting">Detecting...</string>
     <string name="post">POST</string>
     <string name="non_halal">Non Halal</string>
-    <string name="you_seems_to_be_offline">You seems to be offline</string>
+    <string name="you_seems_to_be_offline">You seem to be offline</string>
     <string name="check_your_wifi_connection_or_cellular_data_and_try_again">Check your wifi connection or cellular data and try again</string>
     <string name="settings">Settings</string>
     <string name="try_again">Try again</string>
