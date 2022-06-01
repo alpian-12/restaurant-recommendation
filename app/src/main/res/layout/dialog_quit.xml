@@ -30,18 +30,19 @@
             android:orientation="horizontal"
             android:weightSum="2">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/Ok"
                 style="@style/button_green_border"
                 android:layout_weight="1"
-                android:text="Ok" />
+                android:text="@string/ok"
+                android:layout_marginEnd="17dp"/>
 
             <Button
                 android:id="@+id/Cencel"
                 style="@style/button_green"
-                android:layout_marginLeft="17dp"
+                android:layout_marginStart="17dp"
                 android:layout_weight="1"
-                android:text="Cencel" />
+                android:text="@string/cencel" />
 
         </LinearLayout>
     </LinearLayout>

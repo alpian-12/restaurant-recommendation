@@ -4,15 +4,13 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RatingBar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.restaurantrecommendation.R
 import com.example.restaurantrecommendation.databinding.FragmentReviewDetailRestaurantBinding
-import com.example.restaurantrecommendation.ui.bottomsheet.InputReviewBottomSheet
+import com.example.restaurantrecommendation.ui.detailrestaurant.bottomsheet.InputReviewBottomSheet
 
 
 class ReviewDetailRestaurantFragment : Fragment(),

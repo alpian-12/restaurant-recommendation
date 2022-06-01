@@ -29,7 +29,9 @@ class ResultActivity : AppCompatActivity() {
         binding.btnCamera.setOnClickListener {
             launcherIntentCameraX.launch(Intent(this, CameraActivity::class.java))
         }
-
+        binding.swiperefreshresult.setOnRefreshListener {
+            binding.swiperefreshresult.isRefreshing = false
+        }
         showRecyclerView()
     }
 

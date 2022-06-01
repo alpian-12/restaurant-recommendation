@@ -2,6 +2,7 @@ package com.example.restaurantrecommendation.ui.category
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.example.restaurantrecommendation.databinding.ActivityCategoryBinding
 
 class CategoryActivity : AppCompatActivity() {
@@ -17,6 +18,10 @@ class CategoryActivity : AppCompatActivity() {
         binding = ActivityCategoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        binding.swiperefreshcategory.setOnRefreshListener {
+            binding.swiperefreshcategory.isRefreshing = false
+        }
         setToolbar()
     }
 
@@ -28,6 +33,7 @@ class CategoryActivity : AppCompatActivity() {
             setDisplayShowHomeEnabled(true)
         }
     }
+
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()

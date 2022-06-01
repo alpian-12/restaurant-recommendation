@@ -24,7 +24,9 @@ class DetailRestaurantActivity : AppCompatActivity() {
         TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->
             tab.text = resources.getString(TAB_TITLES[position])
         }.attach()
-
+        binding.swiperefresh.setOnRefreshListener {
+            binding.swiperefresh.isRefreshing = false
+        }
         setToolbar()
     }
 
