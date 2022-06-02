@@ -8,14 +8,14 @@ data class RestaurantSearchResponse (
     val icon_mask_base_uri: String,
     val name: String,
     val opening_hours: ListOpeningHoursReponse,
-    val photos: Array<ListPhotosResponse>,
+    val photos: List<ListPhotosResponse>,
     val place_id: String,
     val plus_code: ListPlusCodeResponse,
     val price_level: Int,
     val rating: Float,
     val reference: String,
     val scope: String,
-    val types: Array<String>,
+    val types: List<String>,
     val user_ratings_total: Int,
     val vicinity: String
 )
@@ -47,13 +47,13 @@ data class ListSouthwestResponse(
 
 data class ListOpeningHoursReponse(
     val open_now: Boolean,
-    val periods: Array<ListPeriodsResponse>?,
-    val weekday_text: Array<String>?
+    val periods: List<ListPeriodsResponse>?,
+    val weekday_text: List<String>?
 )
 
 data class ListPhotosResponse(
     val height: Int,
-    val html_attributions: Array<String>,
+    val html_attributions: List<String>,
     val photo_reference: String,
     val width: Int
 )

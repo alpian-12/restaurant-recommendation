@@ -6,8 +6,12 @@ import retrofit2.http.GET
 
 interface ApiService {
     @GET("sebuah-nama")
-    fun getRestaurantSearch(): List<RestaurantSearchResponse>
+    fun getRestaurantSearch(
+
+    ): List<RestaurantSearchResponse>
 
     @GET("sebuah-nama")
-    fun getRestaurantDetail(): RestaurantResponse
+    fun getRestaurantDetail(
+
+    ): RestaurantResponse
 }

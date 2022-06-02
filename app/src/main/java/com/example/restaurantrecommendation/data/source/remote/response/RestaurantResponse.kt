@@ -1,7 +1,7 @@
 package com.example.restaurantrecommendation.data.source.remote.response
 
 data class RestaurantResponse(
-    val address_components: Array<ListAddressComponentsResponse>,
+    val address_components: List<ListAddressComponentsResponse>,
     val adr_address: String,
     val business_status: String,
     val formatted_address: String,
@@ -13,7 +13,7 @@ data class RestaurantResponse(
     val international_phone_number: String,
     val name: String,
     val opening_hours: ListOpeningHoursReponse,
-    val photos: Array<ListPhotosResponse>,
+    val photos: List<ListPhotosResponse>,
     val place_id: String,
     val plus_code: ListPlusCodeResponse,
     val price_level: Int,
@@ -24,5 +24,5 @@ data class RestaurantResponse(
 data class ListAddressComponentsResponse(
     val long_name: String,
     val short_name: String,
-    val types: Array<String>
+    val types: List<String>
 )

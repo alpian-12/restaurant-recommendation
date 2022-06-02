@@ -7,7 +7,7 @@ import android.widget.ImageButton
 import androidx.recyclerview.widget.RecyclerView
 import com.example.restaurantrecommendation.R
 import com.example.restaurantrecommendation.databinding.ItemRestaurantBinding
-import com.example.restaurantrecommendation.model.Restaurant
+import com.example.restaurantrecommendation.data.domain.model.Restaurant
 import com.example.restaurantrecommendation.ui.detailrestaurant.DetailRestaurantActivity
 
 class RestaurantAdapter(private val restaurants : ArrayList<Restaurant>): RecyclerView.Adapter<RestaurantAdapter.MyViewHolder>() {
