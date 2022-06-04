@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.restaurantrecommendation.adapter.RestaurantAdapter
 import com.example.restaurantrecommendation.databinding.ActivityResultBinding
-import com.example.restaurantrecommendation.model.Restaurant
+import com.example.restaurantrecommendation.data.domain.model.Restaurant
 import com.example.restaurantrecommendation.ui.camera.CameraActivity
 import com.example.restaurantrecommendation.util.rotateBitmap
 import java.io.File

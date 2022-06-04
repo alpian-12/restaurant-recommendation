@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.restaurantrecommendation.R
 import com.example.restaurantrecommendation.adapter.RestaurantAdapter
 import com.example.restaurantrecommendation.databinding.FragmentHomeBinding
-import com.example.restaurantrecommendation.model.Restaurant
+import com.example.restaurantrecommendation.data.domain.model.Restaurant
 import com.example.restaurantrecommendation.ui.camera.CameraActivity
 import com.example.restaurantrecommendation.ui.home.category.CategoryBottomSheet
 import com.example.restaurantrecommendation.ui.home.location.LocationBottomSheet
