@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "366862261172",
+    "project_id": "onigiri-17031",
+    "storage_bucket": "onigiri-17031.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:366862261172:android:48e8ba513c6e4c6be7f0e1",
+        "android_client_info": {
+          "package_name": "com.example.restaurantrecommendation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "366862261172-apve53gjuttdj794a2tvns87p3hknfeg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.restaurantrecommendation",
+            "certificate_hash": "6c2454811b9030c5ba1929fd5f38862395d4404b"
+          }
+        },
+        {
+          "client_id": "366862261172-l3vv6pkrjsotlkvrk9vipt5g7avbqfoa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtN5jvpk0eQPoUENhGjqMcui6n3irv170"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "366862261172-l3vv6pkrjsotlkvrk9vipt5g7avbqfoa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
