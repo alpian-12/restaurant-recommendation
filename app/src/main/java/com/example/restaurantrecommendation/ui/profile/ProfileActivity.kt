@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.restaurantrecommendation.R
 import com.example.restaurantrecommendation.data.source.remote.network.Firebase
@@ -36,11 +37,13 @@ class ProfileActivity : AppCompatActivity() {
             dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
             dialog.setCancelable(false)
 
-            bindingDialog.btnNegative.setOnClickListener {
+            val cancel = view.findViewById<Button>(R.id.btn_negative)
+            cancel.setOnClickListener {
                 dialog.dismiss()
             }
 
-            bindingDialog.btnPositive.setOnClickListener{
+            val quit = view.findViewById<Button>(R.id.btn_positive)
+            quit.setOnClickListener{
                 Firebase.authInstance().signOut()
                 startActivity(Intent(this@ProfileActivity, LoginActivity::class.java))
                 finish()
