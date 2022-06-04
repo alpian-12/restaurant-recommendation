@@ -93,6 +93,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         when(view?.id) {
             R.id.btn_camera -> {
                 startActivity(Intent(activity, CameraActivity::class.java))
+                getActivity()?.onBackPressed()
             }
             R.id.tv_your_location -> {
                 val locationBottomSheet = LocationBottomSheet()

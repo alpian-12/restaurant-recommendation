@@ -156,5 +156,6 @@
     <string name="try_again">Try again</string>
     <string name="we_cant_find_you_on_the_map">We cant find you on the map</string>
     <string name="check_your_location">Check your location</string>
+    <string name="TextPersen">%d %%</string>
 
 </resources>

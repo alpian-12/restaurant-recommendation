@@ -77,11 +77,11 @@ class CameraActivity : AppCompatActivity() {
                     permissionDesc.isVisible = true
                     tvAdjustAngle.isVisible = false
                     permissionDesc.setOnClickListener {
-                        startActivity(
-                            Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
-                                data = Uri.fromParts("package", packageName, null)
-                            }
-                        )
+                        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
+                            data = Uri.fromParts("package", packageName, null)
+                        }
+                        startActivity(intent)
+                        finish()
                     }
                 }
             }
