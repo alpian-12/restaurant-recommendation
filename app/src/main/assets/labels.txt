@@ -1,29 +1,29 @@
 bakpao
 bakso
-bubur_ayam
+bubur ayam
 capcay
-gado_gado
+gado gado
 hotteok
 jalebi
 jjangmyeon
-kerak_telor
+kerak telor
 kimchi
-kue_keranjang
+kue keranjang
 kulfi
 laddu
 lumpia
-manggo_sticky_rice
-mie_goreng
+manggo sticky rice
+mie goreng
 musakhan
-nasi_goreng
-nasi_hainam
+nasi goreng
+nasi hainam
 onigiri
 pempek
 pizza
 ramen
 rawon
 rendang
-roti_maryam
+roti maryam
 samosa
 sate
 siomay

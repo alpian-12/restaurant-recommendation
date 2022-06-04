@@ -140,5 +140,5 @@ class CameraPreviewActivity : AppCompatActivity() {
         }
         return ind
     }
-    
+
 }
