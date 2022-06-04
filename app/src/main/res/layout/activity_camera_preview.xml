@@ -44,18 +44,18 @@
                 android:id="@+id/tv_progress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="100%"/>
+                android:text="@string/TextPersen"/>
+
 
         </LinearLayout>
 
-        <com.google.android.material.progressindicator.LinearProgressIndicator
-            android:id="@+id/progress_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
-            android:progressTint="@color/white"
-            app:indicatorColor="@color/grey_light"
-            android:layout_marginTop="5dp"/>
+      <ProgressBar
+          android:id="@+id/progresbarhorizontal"
+          android:paddingHorizontal="20dp"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+          />
 
     </LinearLayout>
 
