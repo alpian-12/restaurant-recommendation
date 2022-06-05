@@ -20,13 +20,14 @@ class RemoteDataSource private constructor(private val apiService: ApiService) {
             }
     }
 
-    // get data dari internet di sini
-    suspend fun getRestaurantSearch(query: String): Flow<ApiResponse<List<RestaurantSearchResponse>>> {
+    suspend fun searchRestaurant(search: String, lat: Double, long: Double): Flow<ApiResponse<List<RestaurantSearchResponse>>> {
         return flow {
             try {
-                val response = apiService.getRestaurantSearch()
-                if (response.isNotEmpty()){
-                    emit(ApiResponse.Success(response))
+                val response = apiService.searchRestaurant(search, lat, long)
+                val dataArray = response.results
+                Log.d("Hasil", dataArray.toString())
+                if (dataArray.isNotEmpty()){
+                    emit(ApiResponse.Success(response.results))
                 } else {
                     emit(ApiResponse.Empty)
                 }

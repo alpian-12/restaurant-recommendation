@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object ApiConfig {
     fun provideApiService(): ApiService {
         val retrofit = Retrofit.Builder()
-            .baseUrl("url")
+            .baseUrl("https://focused-house-350008.et.r.appspot.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(
                 OkHttpClient.Builder()

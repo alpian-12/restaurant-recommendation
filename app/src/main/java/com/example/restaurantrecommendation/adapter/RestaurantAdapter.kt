@@ -7,13 +7,14 @@ import android.widget.ImageButton
 import androidx.recyclerview.widget.RecyclerView
 import com.example.restaurantrecommendation.R
 import com.example.restaurantrecommendation.databinding.ItemRestaurantBinding
-import com.example.restaurantrecommendation.data.domain.model.Restaurant
+import com.example.restaurantrecommendation.domain.model.Restaurant
+import com.example.restaurantrecommendation.data.source.remote.response.RestaurantSearchResponse
 import com.example.restaurantrecommendation.ui.detailrestaurant.DetailRestaurantActivity
 
-class RestaurantAdapter(private val restaurants : ArrayList<Restaurant>): RecyclerView.Adapter<RestaurantAdapter.MyViewHolder>() {
+class RestaurantAdapter(private val restaurants : List<RestaurantSearchResponse>): RecyclerView.Adapter<RestaurantAdapter.MyViewHolder>() {
     private var fav = false
     inner class MyViewHolder(private val binding: ItemRestaurantBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind (restaurant: Restaurant) {
+        fun bind (restaurant: RestaurantSearchResponse) {
             binding.apply {
                 with(restaurant) {
                     RestaurantName.text = name

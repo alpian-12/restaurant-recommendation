@@ -19,9 +19,11 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import com.example.restaurantrecommendation.R
 import com.example.restaurantrecommendation.databinding.ActivityCameraBinding
+import com.example.restaurantrecommendation.ui.main.MainActivity
 import com.example.restaurantrecommendation.util.createFile
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
+import com.example.restaurantrecommendation.util.checkPermission
 
 class CameraActivity : AppCompatActivity() {
 
@@ -35,7 +37,7 @@ class CameraActivity : AppCompatActivity() {
         const val CAMERA_X_RESULT = 200
 
         private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
-        private const val REQUEST_CODE_PERMISSIONS = 10
+        private const val REQUEST_CODE_PERMISSIONS = 100
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,22 +47,25 @@ class CameraActivity : AppCompatActivity() {
 
         cameraExecutor = Executors.newSingleThreadExecutor()
 
-        if (!allPermissionsGranted()) {
+        checkCameraPermission()
+
+        binding.btnCapture.setOnClickListener { takePhoto() }
+    }
+
+    private fun checkCameraPermission() {
+        if (!checkPermission(REQUIRED_PERMISSIONS, this@CameraActivity)) {
             ActivityCompat.requestPermissions(
                 this,
                 REQUIRED_PERMISSIONS,
                 REQUEST_CODE_PERMISSIONS
             )
         } else {
-            binding.tvAdjustAngle.isVisible = true
+            binding.apply {
+                tvAdjustAngle.isVisible = true
+                permissionDesc.isVisible = false
+            }
             startCamera()
         }
-
-        binding.btnCapture.setOnClickListener { takePhoto() }
-    }
-
-    private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
-        ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
     }
 
     override fun onRequestPermissionsResult(
@@ -70,7 +75,11 @@ class CameraActivity : AppCompatActivity() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQUEST_CODE_PERMISSIONS) {
-            if (allPermissionsGranted()) {
+            if (checkPermission(REQUIRED_PERMISSIONS, this@CameraActivity)) {
+                binding.apply {
+                    tvAdjustAngle.isVisible = true
+                    permissionDesc.isVisible = false
+                }
                 startCamera()
             } else {
                 binding.apply {
@@ -81,7 +90,7 @@ class CameraActivity : AppCompatActivity() {
                             data = Uri.fromParts("package", packageName, null)
                         }
                         startActivity(intent)
-                        finish()
+                        checkCameraPermission()
                     }
                 }
             }

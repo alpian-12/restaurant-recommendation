@@ -1,5 +1,10 @@
 package com.example.restaurantrecommendation.data.source.remote.response
 
+
+data class ListRestaurantSearchResponse(
+    val results: List<RestaurantSearchResponse>
+)
+
 data class RestaurantSearchResponse (
     val business_status: String,
     val geometry: ListGeometryResponse,

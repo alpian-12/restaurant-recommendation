@@ -1,4 +1,4 @@
-package com.example.restaurantrecommendation.data.domain.model
+package com.example.restaurantrecommendation.domain.model
 
 import com.example.restaurantrecommendation.data.source.remote.response.*
 

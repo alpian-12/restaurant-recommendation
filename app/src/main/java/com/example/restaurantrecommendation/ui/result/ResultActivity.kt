@@ -1,23 +1,23 @@
 package com.example.restaurantrecommendation.ui.result
 
+import android.Manifest
 import android.content.Intent
-import android.graphics.BitmapFactory
+import android.location.Location
 import android.os.Bundle
-import android.util.Log
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.restaurantrecommendation.adapter.RestaurantAdapter
+import androidx.lifecycle.ViewModelProvider
 import com.example.restaurantrecommendation.databinding.ActivityResultBinding
-import com.example.restaurantrecommendation.data.domain.model.Restaurant
 import com.example.restaurantrecommendation.ui.camera.CameraActivity
 import com.example.restaurantrecommendation.ui.main.MainActivity
-import com.example.restaurantrecommendation.util.rotateBitmap
-import java.io.File
+import com.example.restaurantrecommendation.util.ViewModelFactory
+import com.example.restaurantrecommendation.util.checkPermission
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 
 class ResultActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityResultBinding
+    private lateinit var viewModel: ResultViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,49 +25,63 @@ class ResultActivity : AppCompatActivity() {
         binding = ActivityResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val factory = ViewModelFactory.getInstance(this@ResultActivity)
+        viewModel = ViewModelProvider(this, factory)[ResultViewModel::class.java]
+
         setToolbar()
-//        binding.search.requestFocus()
 
         binding.btnCamera.setOnClickListener {
-            launcherIntentCameraX.launch(Intent(this, CameraActivity::class.java))
+            startActivity(Intent(this@ResultActivity, CameraActivity::class.java))
         }
+
         binding.swiperefreshresult.setOnRefreshListener {
             binding.swiperefreshresult.isRefreshing = false
         }
-        showRecyclerView()
+
         val foodname = intent?.getStringExtra(FOOD_NAME)
         if (foodname.isNullOrEmpty()){
             binding.search.requestFocus()
         }
         else {
-            binding.search.setText(foodname)
+//            binding.search.setText(foodname)
 
         }
+
+//        setSarch()
+
+//        binding.rvRestaurant.layoutManager = LinearLayoutManager(this)
+//
+//        resultViewModel.restaurants.observe(this) {
+//            val restaurantAdapter = RestaurantAdapter(it)
+//            restaurantAdapter.notifyDataSetChanged()
+//            binding.rvRestaurant.adapter = restaurantAdapter
+//        }
     }
 
-    private fun showRecyclerView() {
-        val list = ArrayList<Restaurant>()
-
-        list.add(Restaurant("Restoran murah"))
-        list.add(Restaurant("Restoran mahal"))
-        list.add(Restaurant("Restoran murah"))
-        list.add(Restaurant("Restoran mahal"))
-        list.add(Restaurant("Restoran murah"))
-        list.add(Restaurant("Restoran mahal"))
-        list.add(Restaurant("Restoran murah"))
-        list.add(Restaurant("Restoran mahal"))
-
-        with(binding.rvRestaurant) {
-            layoutManager = LinearLayoutManager(binding.root.context)
-            adapter = RestaurantAdapter(list)
-        }
-    }
+//    private fun setSarch() {
+//        binding.search.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+//            override fun onQueryTextSubmit(query: String): Boolean {
+//
+//                return true
+//            }
+//
+//            override fun onQueryTextChange(newText: String?): Boolean {
+//                    Log.d("testa", userLocation.toString())
+//                    resultViewModel.getRestaurant(newText!!, -6.175392F, 106.827153F)
+//                return false
+//            }
+//
+//        })
+//    }
 
     private fun setToolbar() {
-        setSupportActionBar(binding.topAppBar)
-        supportActionBar?.apply {
-            setDisplayHomeAsUpEnabled(true)
-            setDisplayShowHomeEnabled(true)
+        with(binding) {
+            search.requestFocus()
+            setSupportActionBar(topAppBar)
+            supportActionBar?.apply {
+                setDisplayHomeAsUpEnabled(true)
+                setDisplayShowHomeEnabled(true)
+            }
         }
     }
 
@@ -78,14 +92,6 @@ class ResultActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         startActivity(Intent(this@ResultActivity,MainActivity::class.java))
-    }
-    private val launcherIntentCameraX = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) {
-        if (it.resultCode == CameraActivity.CAMERA_X_RESULT) {
-            val myFile = it.data?.getSerializableExtra("picture") as File
-            val isBackCamera = it.data?.getBooleanExtra("isBackCamera", true) as Boolean
-        }
     }
 
     companion object {

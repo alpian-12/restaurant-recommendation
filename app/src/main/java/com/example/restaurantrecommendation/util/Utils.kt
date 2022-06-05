@@ -1,9 +1,14 @@
 package com.example.restaurantrecommendation.util
 
+import android.Manifest
 import android.app.Application
-import android.graphics.Bitmap
-import android.graphics.Matrix
+import android.content.Context
+import android.content.pm.PackageManager
+import android.location.LocationManager
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.FragmentManager
 import com.example.restaurantrecommendation.R
+import com.example.restaurantrecommendation.ui.bottomsheet.NoLocationBottomSheet
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
@@ -27,7 +32,20 @@ fun createFile(application: Application): File {
     return File(outputDirectory, "$timeStamp.jpg")
 }
 
-fun rotateBitmap(bitmap: Bitmap): Bitmap {
-    val matrix = Matrix()
-    return Bitmap.createBitmap(bitmap, 0, 0, bitmap.width ,bitmap.height, matrix,  true)
+fun checkPermission(permission: Array<String>, context: Context): Boolean {
+    return permission.all {
+        ContextCompat.checkSelfPermission(
+            context,
+            it
+        ) == PackageManager.PERMISSION_GRANTED
+    }
+}
+
+fun checkGPS(context: Context, supportFragmentManager: FragmentManager) {
+    val manager = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+    val noLocationBottomSheet = NoLocationBottomSheet()
+
+    if(!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+        noLocationBottomSheet.show(supportFragmentManager, NoLocationBottomSheet.TAG)
+    }
 }
