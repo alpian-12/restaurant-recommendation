@@ -6,7 +6,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.restaurantrecommendation.R
@@ -14,6 +13,7 @@ import com.example.restaurantrecommendation.databinding.ActivityMainBinding
 import com.example.restaurantrecommendation.util.checkGPS
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.example.restaurantrecommendation.util.checkPermission
+import com.example.restaurantrecommendation.util.getUserLocation
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,23 +37,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        checkLocationPermission()
+        getUserLocation(this@MainActivity, supportFragmentManager)
 
         val navView: BottomNavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         navView.setupWithNavController(navController)
-    }
-
-    private fun checkLocationPermission() {
-        if (!checkPermission(REQUIRED_PERMISSIONS, this@MainActivity)) {
-            ActivityCompat.requestPermissions(
-                this,
-                REQUIRED_PERMISSIONS,
-                REQUEST_CODE_PERMISSIONS
-            )
-        } else {
-            checkGPS(this@MainActivity, supportFragmentManager)
-        }
     }
 
     override fun onRequestPermissionsResult(
@@ -70,7 +58,6 @@ class MainActivity : AppCompatActivity() {
                     data = Uri.fromParts("package", packageName, null)
                 }
                 startActivity(intent)
-                checkLocationPermission()
             }
         }
     }

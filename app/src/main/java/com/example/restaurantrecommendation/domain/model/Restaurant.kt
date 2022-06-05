@@ -3,7 +3,9 @@ package com.example.restaurantrecommendation.domain.model
 import com.example.restaurantrecommendation.data.source.remote.response.*
 
 data class Restaurant(
-    val name: String
+    val place_id: String,
+    val name: String,
+    val isFavorite: Boolean = false
 
 //    val address_components: List<ListAddressComponentsResponse>,
 //    val formatted_address: String,

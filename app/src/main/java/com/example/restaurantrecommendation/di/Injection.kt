@@ -2,6 +2,8 @@ package com.example.restaurantrecommendation.di
 
 import android.content.Context
 import com.example.restaurantrecommendation.data.RestaurantRepository
+import com.example.restaurantrecommendation.data.source.local.LocalDataSource
+import com.example.restaurantrecommendation.data.source.local.room.RestaurantDatabase
 import com.example.restaurantrecommendation.data.source.remote.RemoteDataSource
 import com.example.restaurantrecommendation.data.source.remote.network.ApiConfig
 import com.example.restaurantrecommendation.domain.repository.IRestaurantRepository
@@ -10,9 +12,12 @@ import com.example.restaurantrecommendation.domain.usecase.RestaurantUseCase
 
 object Injection {
     private fun provideRepository(context: Context): IRestaurantRepository {
-        val remoteDataSource = RemoteDataSource.getInstance(ApiConfig.provideApiService())
+        val database = RestaurantDatabase.getInstance(context)
 
-        return RestaurantRepository.getInstance(remoteDataSource)
+        val remoteDataSource = RemoteDataSource.getInstance(ApiConfig.provideApiService())
+        val localDataSource = LocalDataSource.getInstance(database.restaurantDao())
+
+        return RestaurantRepository.getInstance(remoteDataSource, localDataSource)
     }
 
     fun provideRestaurantUseCase(context: Context): RestaurantUseCase {

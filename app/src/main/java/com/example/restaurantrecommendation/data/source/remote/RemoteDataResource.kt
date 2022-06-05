@@ -25,7 +25,6 @@ class RemoteDataSource private constructor(private val apiService: ApiService) {
             try {
                 val response = apiService.searchRestaurant(search, lat, long)
                 val dataArray = response.results
-                Log.d("Hasil", dataArray.toString())
                 if (dataArray.isNotEmpty()){
                     emit(ApiResponse.Success(response.results))
                 } else {

@@ -1,23 +1,33 @@
 package com.example.restaurantrecommendation.ui.result
 
-import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.restaurantrecommendation.adapter.RestaurantAdapter
+import com.example.restaurantrecommendation.data.Resource
 import com.example.restaurantrecommendation.databinding.ActivityResultBinding
+import com.example.restaurantrecommendation.ui.bottomsheet.NoLocationBottomSheet
 import com.example.restaurantrecommendation.ui.camera.CameraActivity
 import com.example.restaurantrecommendation.ui.main.MainActivity
+import com.example.restaurantrecommendation.util.PERMISSION_REQUEST_ACCESS_LOCATION
 import com.example.restaurantrecommendation.util.ViewModelFactory
-import com.example.restaurantrecommendation.util.checkPermission
+import com.example.restaurantrecommendation.util.checkLocationPermission
+import com.example.restaurantrecommendation.util.isLocationEnabled
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 
 class ResultActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityResultBinding
-    private lateinit var viewModel: ResultViewModel
+    private lateinit var resultViewModel: ResultViewModel
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,9 +36,14 @@ class ResultActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val factory = ViewModelFactory.getInstance(this@ResultActivity)
-        viewModel = ViewModelProvider(this, factory)[ResultViewModel::class.java]
+        resultViewModel = ViewModelProvider(this, factory)[ResultViewModel::class.java]
+
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
         setToolbar()
+
+        getLocation()
+        Log.d("disini", resultViewModel.location.toString())
 
         binding.btnCamera.setOnClickListener {
             startActivity(Intent(this@ResultActivity, CameraActivity::class.java))
@@ -43,36 +58,82 @@ class ResultActivity : AppCompatActivity() {
             binding.search.requestFocus()
         }
         else {
-//            binding.search.setText(foodname)
-
+            binding.search.setQuery(foodname, false)
         }
 
-//        setSarch()
+        showRecyclerView()
 
-//        binding.rvRestaurant.layoutManager = LinearLayoutManager(this)
-//
-//        resultViewModel.restaurants.observe(this) {
-//            val restaurantAdapter = RestaurantAdapter(it)
-//            restaurantAdapter.notifyDataSetChanged()
-//            binding.rvRestaurant.adapter = restaurantAdapter
-//        }
     }
 
-//    private fun setSarch() {
-//        binding.search.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
-//            override fun onQueryTextSubmit(query: String): Boolean {
-//
-//                return true
-//            }
-//
-//            override fun onQueryTextChange(newText: String?): Boolean {
-//                    Log.d("testa", userLocation.toString())
-//                    resultViewModel.getRestaurant(newText!!, -6.175392F, 106.827153F)
-//                return false
-//            }
-//
-//        })
-//    }
+    private fun showRecyclerView() {
+        val restaurntAdapter = RestaurantAdapter()
+        resultViewModel.restaurant.observe(this@ResultActivity) { restaurant ->
+            if(restaurant != null) {
+                when(restaurant) {
+                    is Resource.Success -> {
+                        restaurntAdapter.setData(restaurant.data)
+                    }
+                }
+            }
+        }
+
+        with(binding.rvRestaurant) {
+            layoutManager = LinearLayoutManager(context)
+            setHasFixedSize(true)
+            adapter = restaurntAdapter
+        }
+    }
+
+    private fun setSarch() {
+        binding.search.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String): Boolean {
+                if (query != null) {
+                    resultViewModel.search = query!!
+                }
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+
+                return false
+            }
+
+        })
+    }
+
+    private fun getLocation() {
+        if(checkLocationPermission(this@ResultActivity)) {
+            if(isLocationEnabled(this@ResultActivity)) {
+                fusedLocationClient.lastLocation.addOnCompleteListener(this) {
+                    val location: Location? = it.result
+                    if (location != null) {
+                        resultViewModel.location = location
+                    }
+                }
+            } else {
+                val noLocationBottomSheet = NoLocationBottomSheet()
+                noLocationBottomSheet.show(supportFragmentManager, NoLocationBottomSheet.TAG)
+            }
+        } else {
+            //request permission
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        if(requestCode == PERMISSION_REQUEST_ACCESS_LOCATION) {
+            if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_DENIED) {
+                getLocation()
+            } else {
+                //denied
+            }
+        }
+    }
 
     private fun setToolbar() {
         with(binding) {

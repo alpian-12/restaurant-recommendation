@@ -1,6 +1,5 @@
 package com.example.restaurantrecommendation.data.source.remote.response
 
-
 data class ListRestaurantSearchResponse(
     val results: List<RestaurantSearchResponse>
 )
@@ -31,8 +30,8 @@ data class ListGeometryResponse(
 )
 
 data class ListLocationResponse(
-    val lat: Float,
-    val lng: Float
+    val lat: Double,
+    val lng: Double
 )
 
 data class ListViewportResponse(
@@ -41,13 +40,13 @@ data class ListViewportResponse(
 )
 
 data class ListNortheastResponse(
-    val lat: Float,
-    val lng: Float
+    val lat: Double,
+    val lng: Double
 )
 
 data class ListSouthwestResponse(
-    val lat: Float,
-    val lng: Float
+    val lat: Double,
+    val lng: Double
 )
 
 data class ListOpeningHoursReponse(
