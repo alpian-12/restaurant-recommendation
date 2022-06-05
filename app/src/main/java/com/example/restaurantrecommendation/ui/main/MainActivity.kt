@@ -10,10 +10,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.restaurantrecommendation.R
 import com.example.restaurantrecommendation.databinding.ActivityMainBinding
-import com.example.restaurantrecommendation.util.checkGPS
+import com.example.restaurantrecommendation.util.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.example.restaurantrecommendation.util.checkPermission
-import com.example.restaurantrecommendation.util.getUserLocation
 
 class MainActivity : AppCompatActivity() {
 
@@ -52,7 +50,9 @@ class MainActivity : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQUEST_CODE_PERMISSIONS) {
             if (checkPermission(REQUIRED_PERMISSIONS, this@MainActivity)) {
-                checkGPS(this@MainActivity, supportFragmentManager)
+                if(!isLocationEnabled(this@MainActivity)) {
+                    requestGPS(supportFragmentManager)
+                }
             } else {
                 val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
                     data = Uri.fromParts("package", packageName, null)

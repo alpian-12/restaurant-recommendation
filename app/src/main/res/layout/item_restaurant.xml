@@ -97,6 +97,7 @@
                 android:padding="0dp">
 
                 <TextView
+                    android:id="@+id/distance"
                     style="@style/secondary_text_caption"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -28,6 +28,8 @@ class RestaurantAdapter: RecyclerView.Adapter<RestaurantAdapter.MyViewHolder>() 
             binding.apply {
                 with(restaurant) {
                     RestaurantName.text = name
+//                    AddressRestaurant.text = address
+//                    rateRestaurant.text = rating.toString()
                 }
                 buttonFavorite.setOnClickListener {
                     fav = !fav

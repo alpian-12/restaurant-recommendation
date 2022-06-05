@@ -6,6 +6,7 @@ import android.location.Location
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
@@ -16,10 +17,7 @@ import com.example.restaurantrecommendation.databinding.ActivityResultBinding
 import com.example.restaurantrecommendation.ui.bottomsheet.NoLocationBottomSheet
 import com.example.restaurantrecommendation.ui.camera.CameraActivity
 import com.example.restaurantrecommendation.ui.main.MainActivity
-import com.example.restaurantrecommendation.util.PERMISSION_REQUEST_ACCESS_LOCATION
-import com.example.restaurantrecommendation.util.ViewModelFactory
-import com.example.restaurantrecommendation.util.checkLocationPermission
-import com.example.restaurantrecommendation.util.isLocationEnabled
+import com.example.restaurantrecommendation.util.*
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 
@@ -43,6 +41,7 @@ class ResultActivity : AppCompatActivity() {
         setToolbar()
 
         getLocation()
+
         Log.d("disini", resultViewModel.location.toString())
 
         binding.btnCamera.setOnClickListener {
@@ -84,7 +83,7 @@ class ResultActivity : AppCompatActivity() {
         }
     }
 
-    private fun setSarch() {
+    private fun setSearch() {
         binding.search.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String): Boolean {
                 if (query != null) {
@@ -94,7 +93,11 @@ class ResultActivity : AppCompatActivity() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
+                if(newText!!.isNotEmpty()) {
 
+                } else {
+                    binding.rvRestaurant.adapter?.notifyDataSetChanged()
+                }
                 return false
             }
 
@@ -107,6 +110,7 @@ class ResultActivity : AppCompatActivity() {
                 fusedLocationClient.lastLocation.addOnCompleteListener(this) {
                     val location: Location? = it.result
                     if (location != null) {
+                        Toast.makeText(this, location.toString(), Toast.LENGTH_SHORT).show()
                         resultViewModel.location = location
                     }
                 }
@@ -115,7 +119,7 @@ class ResultActivity : AppCompatActivity() {
                 noLocationBottomSheet.show(supportFragmentManager, NoLocationBottomSheet.TAG)
             }
         } else {
-            //request permission
+            requestLocationPermission(this@ResultActivity)
         }
     }
 

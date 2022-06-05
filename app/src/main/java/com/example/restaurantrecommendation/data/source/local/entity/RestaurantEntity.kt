@@ -15,6 +15,18 @@ data class RestaurantEntity (
     @ColumnInfo(name = "name")
     var name: String,
 
+//    @ColumnInfo(name = "lat")
+//    var lat: Double,
+//
+//    @ColumnInfo(name = "long")
+//    var long: Double,
+
+//    @ColumnInfo(name = "address")
+//    var address: String,
+//
+//    @ColumnInfo(name = "rating")
+//    var rating: Double,
+
     @ColumnInfo(name = "isFavorite")
     var isFavorite: Boolean = false
 )

@@ -90,13 +90,4 @@ fun getUserLocation(activity: Activity, supportFragmentManager: FragmentManager)
     }
 }
 
-fun checkGPS(context: Context, supportFragmentManager: FragmentManager) {
-    val manager = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
-    val noLocationBottomSheet = NoLocationBottomSheet()
-
-    if(!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-        noLocationBottomSheet.show(supportFragmentManager, NoLocationBottomSheet.TAG)
-    }
-}
-
 

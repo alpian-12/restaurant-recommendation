@@ -36,4 +36,6 @@ class RemoteDataSource private constructor(private val apiService: ApiService) {
             }
         }.flowOn(Dispatchers.IO)
     }
+
+//    suspend fun getDetailRestaurant(id: String): Flow<ApiResponse<>>
 }
