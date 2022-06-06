@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
+import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.restaurantrecommendation.R
 import com.example.restaurantrecommendation.adapter.RestaurantAdapter
 import com.example.restaurantrecommendation.data.Resource
 import com.example.restaurantrecommendation.databinding.ActivityResultBinding
@@ -18,10 +20,9 @@ import com.example.restaurantrecommendation.ui.bottomsheet.NoLocationBottomSheet
 import com.example.restaurantrecommendation.ui.camera.CameraActivity
 import com.example.restaurantrecommendation.ui.main.MainActivity
 import com.example.restaurantrecommendation.util.*
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.*
 
-class ResultActivity : AppCompatActivity() {
+class ResultActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityResultBinding
     private lateinit var resultViewModel: ResultViewModel
@@ -40,28 +41,33 @@ class ResultActivity : AppCompatActivity() {
 
         setToolbar()
 
+        setOnClickListener()
+        
         getLocation()
+        Log.e("disini", resultViewModel.location.toString())
 
-        Log.d("disini", resultViewModel.location.toString())
 
-        binding.btnCamera.setOnClickListener {
-            startActivity(Intent(this@ResultActivity, CameraActivity::class.java))
-        }
-
-        binding.swiperefreshresult.setOnRefreshListener {
-            binding.swiperefreshresult.isRefreshing = false
-        }
-
-        val foodname = intent?.getStringExtra(FOOD_NAME)
-        if (foodname.isNullOrEmpty()){
-            binding.search.requestFocus()
-        }
-        else {
-            binding.search.setQuery(foodname, false)
-        }
+        setFoodLabel()
 
         showRecyclerView()
 
+    }
+
+    private fun setOnClickListener() {
+        with(binding) {
+            btnCamera.setOnClickListener(this@ResultActivity)
+            swiperefreshresult.setOnRefreshListener{
+                binding.swiperefreshresult.isRefreshing = false
+            }
+        }
+    }
+
+    override fun onClick(view: View?) {
+        when(view?.id) {
+            R.id.btn_camera -> {
+                startActivity(Intent(this@ResultActivity, CameraActivity::class.java))
+            }
+        }
     }
 
     private fun showRecyclerView() {
@@ -86,18 +92,10 @@ class ResultActivity : AppCompatActivity() {
     private fun setSearch() {
         binding.search.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String): Boolean {
-                if (query != null) {
-                    resultViewModel.search = query!!
-                }
                 return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                if(newText!!.isNotEmpty()) {
-
-                } else {
-                    binding.rvRestaurant.adapter?.notifyDataSetChanged()
-                }
                 return false
             }
 
@@ -110,7 +108,7 @@ class ResultActivity : AppCompatActivity() {
                 fusedLocationClient.lastLocation.addOnCompleteListener(this) {
                     val location: Location? = it.result
                     if (location != null) {
-                        Toast.makeText(this, location.toString(), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, location.latitude.toString(), Toast.LENGTH_SHORT).show()
                         resultViewModel.location = location
                     }
                 }
@@ -162,5 +160,15 @@ class ResultActivity : AppCompatActivity() {
     companion object {
         const val FOOD_NAME = ""
 
+    }
+
+    private fun setFoodLabel() {
+        val foodname = intent?.getStringExtra(FOOD_NAME)
+        if (foodname.isNullOrEmpty()){
+            binding.search.requestFocus()
+        }
+        else {
+            binding.search.setQuery(foodname, false)
+        }
     }
 }

@@ -3,8 +3,10 @@ package com.example.restaurantrecommendation.data
 import com.example.restaurantrecommendation.data.source.local.LocalDataSource
 import com.example.restaurantrecommendation.data.source.remote.RemoteDataSource
 import com.example.restaurantrecommendation.data.source.remote.network.ApiResponse
+import com.example.restaurantrecommendation.data.source.remote.response.RestaurantDetailResponse
 import com.example.restaurantrecommendation.data.source.remote.response.RestaurantSearchResponse
 import com.example.restaurantrecommendation.domain.model.Restaurant
+import com.example.restaurantrecommendation.domain.model.RestaurantDetail
 import com.example.restaurantrecommendation.domain.repository.IRestaurantRepository
 import com.example.restaurantrecommendation.util.DataMapper
 import kotlinx.coroutines.flow.Flow
@@ -46,6 +48,25 @@ class RestaurantRepository private constructor(
             override suspend fun saveCallResult(data: List<RestaurantSearchResponse>) {
                 val restaurantList = DataMapper.mapResponsesToEntities(data)
                 localDataSource.insertRestaurant(restaurantList)
+            }
+        }.asFlow()
+
+    override fun getDetailRestaurant(id: String): Flow<Resource<RestaurantDetail>> =
+        object: NetworkBoundResource<RestaurantDetail, RestaurantDetailResponse>() {
+            override fun loadFromDB(): Flow<RestaurantDetail> {
+                TODO("Not yet implemented")
+            }
+
+            override fun shouldFetch(data: RestaurantDetail?): Boolean {
+                TODO("Not yet implemented")
+            }
+
+            override suspend fun createCall(): Flow<ApiResponse<RestaurantDetailResponse>> {
+                TODO("Not yet implemented")
+            }
+
+            override suspend fun saveCallResult(data: RestaurantDetailResponse) {
+                TODO("Not yet implemented")
             }
         }.asFlow()
 }

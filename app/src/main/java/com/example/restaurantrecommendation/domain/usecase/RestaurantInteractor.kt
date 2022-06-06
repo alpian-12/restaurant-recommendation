@@ -6,4 +6,7 @@ class RestaurantInteractor(private val iRestaurantRepository: IRestaurantReposit
 
     override fun searchRestaurant(search: String, lat: Double, long: Double)
         = iRestaurantRepository.searchRestaurant(search, lat, long)
+
+    override fun getDetailRestaurant(id: String)
+        = iRestaurantRepository.getDetailRestaurant(id)
 }

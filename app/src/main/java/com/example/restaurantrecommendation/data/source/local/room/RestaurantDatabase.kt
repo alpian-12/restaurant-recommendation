@@ -20,7 +20,7 @@ abstract class RestaurantDatabase: RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     RestaurantDatabase::class.java,
-                    "Tourism.db"
+                    "Resturant.db"
                 )
                     .fallbackToDestructiveMigration()
                     .build()

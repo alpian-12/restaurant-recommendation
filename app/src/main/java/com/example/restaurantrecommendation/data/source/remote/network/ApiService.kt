@@ -1,5 +1,6 @@
 package com.example.restaurantrecommendation.data.source.remote.network
 
+import com.example.restaurantrecommendation.data.source.remote.response.ListRestaurantDetailResponse
 import com.example.restaurantrecommendation.data.source.remote.response.ListRestaurantSearchResponse
 import retrofit2.http.*
 
@@ -11,10 +12,10 @@ interface ApiService {
         @Query("long") long: Double
     ): ListRestaurantSearchResponse
 
-    @GET("main/{id}")
+    @GET("main/details/{id}")
     fun getDetailRestaurant(
         @Path("id") id: String
-    ): ListRestaurantSearchResponse
+    ): ListRestaurantDetailResponse
 
     @POST("users/favorites")
     fun setFavoriteRestaurant(

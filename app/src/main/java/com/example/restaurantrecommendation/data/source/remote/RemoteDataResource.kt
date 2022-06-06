@@ -3,6 +3,7 @@ package com.example.restaurantrecommendation.data.source.remote
 import android.util.Log
 import com.example.restaurantrecommendation.data.source.remote.network.ApiResponse
 import com.example.restaurantrecommendation.data.source.remote.network.ApiService
+import com.example.restaurantrecommendation.data.source.remote.response.RestaurantDetailResponse
 import com.example.restaurantrecommendation.data.source.remote.response.RestaurantSearchResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -37,5 +38,20 @@ class RemoteDataSource private constructor(private val apiService: ApiService) {
         }.flowOn(Dispatchers.IO)
     }
 
-//    suspend fun getDetailRestaurant(id: String): Flow<ApiResponse<>>
+    suspend fun getDetailRestaurant(id: String): Flow<ApiResponse<RestaurantDetailResponse>> {
+        return flow {
+            try {
+                val response = apiService.getDetailRestaurant(id)
+                val data = response.results
+                if (data != null){
+                    emit(ApiResponse.Success(response.results))
+                } else {
+                    emit(ApiResponse.Empty)
+                }
+            } catch (e : Exception){
+                emit(ApiResponse.Error(e.toString()))
+                Log.e("RemoteDataSource", e.toString())
+            }
+        }.flowOn(Dispatchers.IO)
+    }
 }
