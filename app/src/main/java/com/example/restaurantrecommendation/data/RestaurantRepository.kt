@@ -9,6 +9,7 @@ import com.example.restaurantrecommendation.domain.model.Restaurant
 import com.example.restaurantrecommendation.domain.model.RestaurantDetail
 import com.example.restaurantrecommendation.domain.repository.IRestaurantRepository
 import com.example.restaurantrecommendation.util.RestaurantDataMapper
+import com.example.restaurantrecommendation.util.RestaurantDetailDataMapper
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
@@ -54,19 +55,20 @@ class RestaurantRepository private constructor(
     override fun getDetailRestaurant(id: String): Flow<Resource<RestaurantDetail>> =
         object: NetworkBoundResource<RestaurantDetail, RestaurantDetailResponse>() {
             override fun loadFromDB(): Flow<RestaurantDetail> {
-                TODO("Not yet implemented")
+                return localDataSource.getDetailRestaurant().map {
+                    RestaurantDetailDataMapper.mapEntitiesToDomain(it)
+                }
             }
 
-            override fun shouldFetch(data: RestaurantDetail?): Boolean {
-                TODO("Not yet implemented")
-            }
+            override fun shouldFetch(data: RestaurantDetail?): Boolean =
+                true
 
-            override suspend fun createCall(): Flow<ApiResponse<RestaurantDetailResponse>> {
-                TODO("Not yet implemented")
-            }
+            override suspend fun createCall(): Flow<ApiResponse<RestaurantDetailResponse>> =
+                remoteDataSource.getDetailRestaurant(id)
 
             override suspend fun saveCallResult(data: RestaurantDetailResponse) {
-                TODO("Not yet implemented")
+                val restaurant = RestaurantDetailDataMapper.mapResponsesToEntities(data)
+                localDataSource.insertDetailRestaurant(restaurant)
             }
         }.asFlow()
 }
