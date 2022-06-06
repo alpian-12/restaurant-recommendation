@@ -12,14 +12,11 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.restaurantrecommendation.R
-import com.example.restaurantrecommendation.adapter.RestaurantAdapter
-import com.example.restaurantrecommendation.data.Resource
+import com.example.restaurantrecommendation.adapter.RestaurantAdapterSimple
 import com.example.restaurantrecommendation.databinding.ActivityResultBinding
-import com.example.restaurantrecommendation.domain.model.Restaurant
 import com.example.restaurantrecommendation.ui.camera.CameraActivity
 import com.example.restaurantrecommendation.ui.main.MainActivity
 import com.example.restaurantrecommendation.util.*
@@ -28,7 +25,8 @@ import com.google.android.gms.location.*
 class ResultActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityResultBinding
-    private lateinit var resultViewModel: ResultViewModel
+
+    private lateinit var resultViewModelSimple: ResultViewModel
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private var lon: Double = 0.0
     private var lat: Double = 0.0
@@ -39,30 +37,40 @@ class ResultActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
 
         val factory = ViewModelFactory.getInstance(this@ResultActivity)
-        resultViewModel = ViewModelProvider(this, factory)[ResultViewModel::class.java]
+        resultViewModelSimple = ViewModelProvider(this, factory)[ResultViewModel::class.java]
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
         setToolbar()
-
         setOnClickListener()
-
-//        getLocation()
-//        Log.e("disini", resultViewModel.location.toString())
-
-
         setFoodLabel()
-
-//        showRecyclerView()
         getMyLastLocation()
         setSearch()
     }
+
+    private fun setSearch() {
+        binding.search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                resultViewModelSimple.SetSearchRestaurant(query, lat, lon)
+                Log.e("onQueryTextSubmit: ", "")
+
+                showRecyclerView()
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return false
+            }
+        })
+    }
+
 
     private fun setOnClickListener() {
         with(binding) {
             btnCamera.setOnClickListener(this@ResultActivity)
             swiperefreshresult.setOnRefreshListener {
                 binding.swiperefreshresult.isRefreshing = false
+                showRecyclerView()
             }
         }
     }
@@ -75,18 +83,23 @@ class ResultActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private fun showRecyclerView(restaurant2: LiveData<Resource<List<Restaurant>>>) {
-        val restaurntAdapter = RestaurantAdapter()
-        resultViewModel.restaurant.observe(this@ResultActivity) { restaurant ->
-            if (restaurant != null) {
-                when (restaurant) {
-                    is Resource.Success -> {
-                        restaurntAdapter.setData(restaurant.data)
-                    }
-                }
+    private fun showRecyclerView() {
+        binding.rvRestaurant.visibility = View.INVISIBLE
+        binding.progresbarresult.visibility = View.VISIBLE
+        val restaurntAdapter = RestaurantAdapterSimple()
+        resultViewModelSimple.GetSearchRestaurant().observe(this@ResultActivity) { restaurant ->
+            if (restaurant.isNotEmpty()) {
+                Log.e("data: ", restaurant.size.toString())
+                restaurntAdapter.setData(restaurant)
+                binding.rvRestaurant.visibility = View.VISIBLE
+                binding.notfoundresult.visibility = View.INVISIBLE
+                binding.progresbarresult.visibility = View.INVISIBLE
+            } else {
+                Log.e("showRecyclerView: ", "kosong")
+                binding.notfoundresult.visibility = View.VISIBLE
+                binding.progresbarresult.visibility = View.INVISIBLE
             }
         }
-
         with(binding.rvRestaurant) {
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
@@ -110,7 +123,6 @@ class ResultActivity : AppCompatActivity(), View.OnClickListener {
         ) == PackageManager.PERMISSION_GRANTED
     }
 
-
     private fun getMyLastLocation() {
         if (checkPermission(Manifest.permission.ACCESS_FINE_LOCATION) &&
             checkPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
@@ -133,27 +145,8 @@ class ResultActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-
-    private fun setSearch() {
-        binding.search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String): Boolean {
-                resultViewModel.setSearchInfo(query, lat, lon)
-                Log.e("onQueryTextSubmit: ", "")
-                showRecyclerView(resultViewModel.restaurant)
-                return true
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                return false
-            }
-
-        })
-    }
-
-
     private fun setToolbar() {
         with(binding) {
-            search.requestFocus()
             setSupportActionBar(topAppBar)
             supportActionBar?.apply {
                 setDisplayHomeAsUpEnabled(true)
@@ -171,17 +164,20 @@ class ResultActivity : AppCompatActivity(), View.OnClickListener {
         startActivity(Intent(this@ResultActivity, MainActivity::class.java))
     }
 
-    companion object {
-        const val FOOD_NAME = ""
-
-    }
-
     private fun setFoodLabel() {
         val foodname = intent?.getStringExtra(FOOD_NAME)
         if (foodname.isNullOrEmpty()) {
             binding.search.requestFocus()
         } else {
             binding.search.setQuery(foodname, false)
+            resultViewModelSimple.SetSearchRestaurant(foodname, lat, lon)
+            Log.e("onQueryTextSubmit: ", "")
+            showRecyclerView()
+
         }
+    }
+
+    companion object {
+        const val FOOD_NAME = ""
     }
 }

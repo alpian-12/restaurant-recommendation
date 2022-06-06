@@ -2,6 +2,7 @@ package com.example.restaurantrecommendation.data.source.remote.network
 
 import com.example.restaurantrecommendation.data.source.remote.response.ListRestaurantDetailResponse
 import com.example.restaurantrecommendation.data.source.remote.response.ListRestaurantSearchResponse
+import retrofit2.Call
 import retrofit2.http.*
 
 interface ApiService {
@@ -11,6 +12,14 @@ interface ApiService {
         @Query("lat") lat: Double,
         @Query("long") long: Double
     ): ListRestaurantSearchResponse
+
+    @GET("main/nearby")
+     fun simpleSearchRestaurant(
+        @Query("search") search: String,
+        @Query("lat") lat: Double,
+        @Query("long") long: Double
+    ): Call<ListRestaurantSearchResponse>
+
 
     @GET("main/details/{id}")
     fun getDetailRestaurant(
