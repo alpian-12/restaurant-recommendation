@@ -26,7 +26,7 @@ class CategoryActivity() : AppCompatActivity() {
     private var lon: Double = 0.0
     private var lat: Double = 0.0
     private var categoryName: String = ""
-    private lateinit var categoryViewModel: ResultViewModel
+    private lateinit var categoryViewModel: CategoryViewModel
 
     companion object {
         const val CATEGORY_NAME = "Category"
@@ -41,9 +41,8 @@ class CategoryActivity() : AppCompatActivity() {
         binding.swiperefreshcategory.setOnRefreshListener {
             binding.swiperefreshcategory.isRefreshing = false
         }
-
         val factory = ViewModelFactory.getInstance(this@CategoryActivity)
-        categoryViewModel = ViewModelProvider(this, factory)[ResultViewModel::class.java]
+        categoryViewModel = ViewModelProvider(this, factory)[CategoryViewModel::class.java]
 
         setToolbar(intent.getStringExtra(CATEGORY_NAME))
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)

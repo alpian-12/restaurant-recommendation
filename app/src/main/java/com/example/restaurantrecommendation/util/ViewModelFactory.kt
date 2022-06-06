@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.restaurantrecommendation.di.Injection
 import com.example.restaurantrecommendation.domain.usecase.RestaurantUseCase
+import com.example.restaurantrecommendation.ui.category.CategoryViewModel
 import com.example.restaurantrecommendation.ui.detailrestaurant.DetailRestaurantViewModel
 import com.example.restaurantrecommendation.ui.result.ResultViewModel
 
@@ -31,6 +32,10 @@ class ViewModelFactory private constructor(private val restaurantUseCase: Restau
             }
             modelClass.isAssignableFrom(DetailRestaurantViewModel::class.java) -> {
                 DetailRestaurantViewModel(restaurantUseCase) as T
+            }
+
+            modelClass.isAssignableFrom(CategoryViewModel::class.java) -> {
+                CategoryViewModel(restaurantUseCase) as T
             }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }
