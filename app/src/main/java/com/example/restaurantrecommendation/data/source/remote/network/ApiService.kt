@@ -14,7 +14,7 @@ interface ApiService {
     ): ListRestaurantSearchResponse
 
     @GET("main/nearby")
-     fun simpleSearchRestaurant(
+    fun simpleSearchRestaurant(
         @Query("search") search: String,
         @Query("lat") lat: Double,
         @Query("long") long: Double
