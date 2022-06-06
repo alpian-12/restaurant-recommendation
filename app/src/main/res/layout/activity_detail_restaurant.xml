@@ -58,6 +58,7 @@
                     android:paddingHorizontal="@dimen/activity_horizontal_margin">
 
                     <TextView
+                        android:id="@+id/tv_name"
                         style="@style/list_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

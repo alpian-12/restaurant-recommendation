@@ -4,8 +4,6 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
-import android.os.Looper
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -44,7 +42,7 @@ class ResultActivity : AppCompatActivity(), View.OnClickListener {
         setOnClickListener()
         
         getLocation()
-        Log.e("disini", resultViewModel.location.toString())
+//        Log.e("disini", resultViewModel.location.toString())
 
 
         setFoodLabel()
@@ -109,7 +107,7 @@ class ResultActivity : AppCompatActivity(), View.OnClickListener {
                     val location: Location? = it.result
                     if (location != null) {
                         Toast.makeText(this, location.latitude.toString(), Toast.LENGTH_SHORT).show()
-                        resultViewModel.location = location
+//                        resultViewModel.location = location
                     }
                 }
             } else {

@@ -23,6 +23,7 @@ class RestaurantAdapter: RecyclerView.Adapter<RestaurantAdapter.MyViewHolder>() 
     }
 
     private var fav = false
+
     inner class MyViewHolder(private val binding: ItemRestaurantBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind (restaurant: Restaurant) {
             binding.apply {
@@ -30,14 +31,16 @@ class RestaurantAdapter: RecyclerView.Adapter<RestaurantAdapter.MyViewHolder>() 
                     RestaurantName.text = name
 //                    AddressRestaurant.text = address
 //                    rateRestaurant.text = rating.toString()
+
+                    itemView.setOnClickListener {
+                        val intent = Intent(itemView.context, DetailRestaurantActivity::class.java)
+                        intent.putExtra(DetailRestaurantActivity.PLACE_ID, place_id)
+                        itemView.context.startActivity(intent)
+                    }
                 }
                 buttonFavorite.setOnClickListener {
                     fav = !fav
                     favorite(buttonFavorite)
-                }
-                itemView.setOnClickListener {
-                    val intent = Intent(itemView.context, DetailRestaurantActivity::class.java)
-                    itemView.context.startActivity(intent)
                 }
             }
         }
