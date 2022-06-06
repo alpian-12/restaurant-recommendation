@@ -1,19 +1,13 @@
 package com.example.restaurantrecommendation.ui.home
 
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.restaurantrecommendation.R
-import com.example.restaurantrecommendation.adapter.RestaurantAdapter
 import com.example.restaurantrecommendation.databinding.FragmentHomeBinding
-import com.example.restaurantrecommendation.domain.model.Restaurant
 import com.example.restaurantrecommendation.ui.camera.CameraActivity
 import com.example.restaurantrecommendation.ui.home.category.CategoryBottomSheet
 import com.example.restaurantrecommendation.ui.home.location.LocationBottomSheet

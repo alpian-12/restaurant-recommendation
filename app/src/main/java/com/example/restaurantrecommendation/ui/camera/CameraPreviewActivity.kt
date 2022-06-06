@@ -37,7 +37,7 @@ class CameraPreviewActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val myFile = intent.getSerializableExtra("picture") as File
-        val picture = BitmapFactory.decodeFile(myFile.path)
+        val picture = rotateBitmap(BitmapFactory.decodeFile(myFile.path))
 
         binding.ivFood.setImageBitmap(picture)
 
@@ -117,8 +117,7 @@ class CameraPreviewActivity : AppCompatActivity() {
         var min = 0.0f;
 
         for (i in 0 until size) {
-//            Log.e("get: ", i.toString())
-//            Log.e("get i: ", arr[i].toString())
+
             if (arr[i] > min) {
                 Log.e("getMax: ", i.toString())
                 Log.e("getMax: ", arr[i].toString())
@@ -129,5 +128,15 @@ class CameraPreviewActivity : AppCompatActivity() {
         }
         return ind
     }
-
+    fun rotateBitmap(bitmap: Bitmap, isBackCamera: Boolean = true): Bitmap {
+        val matrix = Matrix()
+        return if (isBackCamera) {
+            matrix.postRotate(90f)
+            Bitmap.createBitmap(bitmap, 0, 0, bitmap.width ,bitmap.height, matrix,  true)
+        } else {
+            matrix.postRotate(-90f)
+            matrix.postScale(-1f, 1f, bitmap.width / 2f, bitmap.height / 2f) // flip gambar
+            Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
+        }
+    }
 }
