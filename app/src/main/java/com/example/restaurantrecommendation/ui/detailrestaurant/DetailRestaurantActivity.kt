@@ -26,7 +26,7 @@ class DetailRestaurantActivity : AppCompatActivity() {
 
         setToolbar()
         val placeId: String? = intent.getStringExtra(PLACE_ID)
-        setDetailRestaurant()
+//        setDetailRestaurant()
 
         val sectionsPagerAdapter = SectionsPagerAdapterRestaurant(this)
         binding.viewPager.adapter = sectionsPagerAdapter
@@ -38,22 +38,22 @@ class DetailRestaurantActivity : AppCompatActivity() {
         }
     }
 
-    private fun setDetailRestaurant() {
-        detailRestaurantViewModel.restaurant.observe(this@DetailRestaurantActivity) { restaurant ->
-            if(restaurant != null) {
-                when(restaurant) {
-                    is Resource.Success -> {
-                        with(binding) {
-                            tvName.text = restaurant.data?.name
-                            rateRestaurant.text = restaurant.data?.rating.toString()
-                        }
-                    }
-                }
-            }
-        }
-
-
-    }
+//    private fun setDetailRestaurant() {
+//        detailRestaurantViewModel.restaurant.observe(this@DetailRestaurantActivity) { restaurant ->
+//            if(restaurant != null) {
+//                when(restaurant) {
+//                    is Resource.Success -> {
+//                        with(binding) {
+//                            tvName.text = restaurant.data?.name
+//                            rateRestaurant.text = restaurant.data?.rating.toString()
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//
+//
+//    }
 
     private fun setToolbar() {
         setSupportActionBar(binding.topAppBar)

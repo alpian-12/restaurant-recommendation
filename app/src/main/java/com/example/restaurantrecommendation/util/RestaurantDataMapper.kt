@@ -8,7 +8,7 @@ object RestaurantDataMapper {
     fun mapResponsesToEntities(input: List<RestaurantSearchResponse>): List<RestaurantEntity> {
         val restaurantList = ArrayList<RestaurantEntity>()
         input.map {
-            val tourism = RestaurantEntity(
+            val restaurant = RestaurantEntity(
                 place_id = it.place_id,
                 name = it.name,
 //                lat = it.geometry.location.lat,
@@ -17,7 +17,7 @@ object RestaurantDataMapper {
 //                rating = it.rating,
                 isFavorite = false
             )
-            restaurantList.add(tourism)
+            restaurantList.add(restaurant)
         }
         return restaurantList
     }

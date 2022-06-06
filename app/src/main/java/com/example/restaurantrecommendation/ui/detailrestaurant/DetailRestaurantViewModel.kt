@@ -8,7 +8,7 @@ class DetailRestaurantViewModel(restaurantUseCase: RestaurantUseCase) : ViewMode
 
     var id: String = ""
 
-    val restaurant = restaurantUseCase.getDetailRestaurant("ChIJpxhuUTX0aS4RcGEb3hV2ckQ").asLiveData()
+//    val restaurant = restaurantUseCase.getDetailRestaurant("ChIJpxhuUTX0aS4RcGEb3hV2ckQ").asLiveData()
 
     fun setPlaceId(id: String) {
         this.id = id
