@@ -8,7 +8,7 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.restaurantrecommendation.R
 import com.example.restaurantrecommendation.databinding.ItemCategoryBinding
-import com.example.restaurantrecommendation.data.domain.model.Category
+import com.example.restaurantrecommendation.domain.model.Category
 import com.example.restaurantrecommendation.ui.category.CategoryActivity
 
 class CategoryAdapter(private val categories : ArrayList<Category>): RecyclerView.Adapter<CategoryAdapter.MyViewHolder>() {

@@ -7,24 +7,40 @@ import android.widget.ImageButton
 import androidx.recyclerview.widget.RecyclerView
 import com.example.restaurantrecommendation.R
 import com.example.restaurantrecommendation.databinding.ItemRestaurantBinding
-import com.example.restaurantrecommendation.data.domain.model.Restaurant
+import com.example.restaurantrecommendation.domain.model.Restaurant
 import com.example.restaurantrecommendation.ui.detailrestaurant.DetailRestaurantActivity
+import java.util.ArrayList
 
-class RestaurantAdapter(private val restaurants : ArrayList<Restaurant>): RecyclerView.Adapter<RestaurantAdapter.MyViewHolder>() {
+class RestaurantAdapter: RecyclerView.Adapter<RestaurantAdapter.MyViewHolder>() {
+
+    private var restaurants = ArrayList<Restaurant>()
+
+    fun setData(newListData: List<Restaurant>?) {
+        if (newListData == null) return
+        restaurants.clear()
+        restaurants.addAll(newListData)
+        notifyDataSetChanged()
+    }
+
     private var fav = false
+
     inner class MyViewHolder(private val binding: ItemRestaurantBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind (restaurant: Restaurant) {
             binding.apply {
                 with(restaurant) {
                     RestaurantName.text = name
+//                    AddressRestaurant.text = address
+//                    rateRestaurant.text = rating.toString()
+
+                    itemView.setOnClickListener {
+                        val intent = Intent(itemView.context, DetailRestaurantActivity::class.java)
+                        intent.putExtra(DetailRestaurantActivity.PLACE_ID, place_id)
+                        itemView.context.startActivity(intent)
+                    }
                 }
                 buttonFavorite.setOnClickListener {
                     fav = !fav
                     favorite(buttonFavorite)
-                }
-                itemView.setOnClickListener {
-                    val intent = Intent(itemView.context, DetailRestaurantActivity::class.java)
-                    itemView.context.startActivity(intent)
                 }
             }
         }

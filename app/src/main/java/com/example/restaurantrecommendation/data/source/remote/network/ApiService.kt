@@ -1,17 +1,36 @@
 package com.example.restaurantrecommendation.data.source.remote.network
 
-import com.example.restaurantrecommendation.data.source.remote.response.RestaurantResponse
-import com.example.restaurantrecommendation.data.source.remote.response.RestaurantSearchResponse
-import retrofit2.http.GET
+import com.example.restaurantrecommendation.data.source.remote.response.ListRestaurantDetailResponse
+import com.example.restaurantrecommendation.data.source.remote.response.ListRestaurantSearchResponse
+import retrofit2.http.*
 
 interface ApiService {
-    @GET("sebuah-nama")
-    fun getRestaurantSearch(
+    @GET("main/nearby")
+    suspend fun searchRestaurant(
+        @Query("search") search: String,
+        @Query("lat") lat: Double,
+        @Query("long") long: Double
+    ): ListRestaurantSearchResponse
 
-    ): List<RestaurantSearchResponse>
+    @GET("main/details/{id}")
+    fun getDetailRestaurant(
+        @Path("id") id: String
+    ): ListRestaurantDetailResponse
 
-    @GET("sebuah-nama")
-    fun getRestaurantDetail(
+    @POST("users/favorites")
+    fun setFavoriteRestaurant(
+        @Body user_id: String,
+        @Body restaurant_id: String
+    )
 
-    ): RestaurantResponse
+    @GET("users/favorites")
+    suspend fun getFavoriteRestaurant(
+        @Query("id") id: String
+    )
+
+    @DELETE("users/favorites")
+    fun deleteFavoriteRestaurant(
+        @Body id: String
+    )
+
 }

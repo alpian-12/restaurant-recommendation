@@ -30,24 +30,25 @@ import java.util.concurrent.Executors
 class CameraPreviewActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCameraPreviewBinding
-    var FOOD_NAME = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCameraPreviewBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val myFile = intent.getSerializableExtra("picture") as File
-        val picture = rotateBitmap(BitmapFactory.decodeFile(myFile.path))
+        val picture = BitmapFactory.decodeFile(myFile.path)
+
         binding.ivFood.setImageBitmap(picture)
+
         binding.btnCancel.setOnClickListener {
             startActivity(Intent(this@CameraPreviewActivity, CameraActivity::class.java))
         }
+
         progresbar(binding.progresbarhorizontal, binding.tvProgress, picture)
     }
 
     private fun progresbar(progresbar: ProgressBar, tvProgress: TextView, picture: Bitmap) {
-        val executor = Executors.newSingleThreadExecutor()
-        val handler = Handler(Looper.getMainLooper())
         var foodname = ""
         lifecycleScope.launch(Dispatchers.Default) {
             //simulate process in background thread
@@ -74,18 +75,6 @@ class CameraPreviewActivity : AppCompatActivity() {
             .setDuration(2000)
             .start()
 
-    }
-
-    fun rotateBitmap(bitmap: Bitmap, isBackCamera: Boolean = true): Bitmap {
-        val matrix = Matrix()
-        return if (isBackCamera) {
-            matrix.postRotate(90f)
-            Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
-        } else {
-            matrix.postRotate(-90f)
-            matrix.postScale(-1f, 1f, bitmap.width / 2f, bitmap.height / 2f) // flip gambar
-            Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
-        }
     }
 
     private fun outputGeneratoronigiri(bitmap: Bitmap): String {

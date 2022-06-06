@@ -1,4 +1,4 @@
-package com.example.restaurantrecommendation.data.domain.model
+package com.example.restaurantrecommendation.domain.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

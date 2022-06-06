@@ -13,15 +13,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.restaurantrecommendation.R
 import com.example.restaurantrecommendation.adapter.RestaurantAdapter
 import com.example.restaurantrecommendation.databinding.FragmentHomeBinding
-import com.example.restaurantrecommendation.data.domain.model.Restaurant
+import com.example.restaurantrecommendation.domain.model.Restaurant
 import com.example.restaurantrecommendation.ui.camera.CameraActivity
 import com.example.restaurantrecommendation.ui.home.category.CategoryBottomSheet
 import com.example.restaurantrecommendation.ui.home.location.LocationBottomSheet
 import com.example.restaurantrecommendation.ui.category.CategoryActivity
 import com.example.restaurantrecommendation.ui.profile.ProfileActivity
 import com.example.restaurantrecommendation.ui.result.ResultActivity
-import com.example.restaurantrecommendation.util.rotateBitmap
-import java.io.File
 
 class HomeFragment : Fragment(), View.OnClickListener {
 
@@ -34,9 +32,6 @@ class HomeFragment : Fragment(), View.OnClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val viewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
-
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
@@ -48,25 +43,6 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
         setOnClickListener()
 
-        showRecyclerView()
-    }
-
-    private fun showRecyclerView() {
-        val list = ArrayList<Restaurant>()
-
-        list.add(Restaurant("Restoran murah"))
-        list.add(Restaurant("Restoran mahal"))
-        list.add(Restaurant("Restoran murah"))
-        list.add(Restaurant("Restoran mahal"))
-        list.add(Restaurant("Restoran murah"))
-        list.add(Restaurant("Restoran mahal"))
-        list.add(Restaurant("Restoran murah"))
-        list.add(Restaurant("Restoran mahal"))
-
-        with(binding.rvRestaurant) {
-            layoutManager = LinearLayoutManager(binding.root.context)
-            adapter = RestaurantAdapter(list)
-        }
     }
 
     private fun setOnClickListener() {

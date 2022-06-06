@@ -1,6 +1,12 @@
 package com.example.restaurantrecommendation.data.source.remote.response
 
-data class RestaurantResponse(
+
+data class ListRestaurantDetailResponse(
+    val results: RestaurantDetailResponse,
+    val app_reviews: List<String>
+)
+
+data class RestaurantDetailResponse(
     val address_components: List<ListAddressComponentsResponse>,
     val adr_address: String,
     val business_status: String,

@@ -1,9 +1,16 @@
-package com.example.restaurantrecommendation.data.domain.model
+package com.example.restaurantrecommendation.domain.model
 
+import androidx.room.ColumnInfo
 import com.example.restaurantrecommendation.data.source.remote.response.*
 
 data class Restaurant(
-    val name: String
+    var place_id: String,
+    var name: String,
+//    var lat: Double,
+//    var long: Double,
+//    var address: String,
+//    var rating: Double,
+    var isFavorite: Boolean = false
 
 //    val address_components: List<ListAddressComponentsResponse>,
 //    val formatted_address: String,

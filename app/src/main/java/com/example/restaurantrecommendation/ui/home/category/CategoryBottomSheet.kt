@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.restaurantrecommendation.R
 import com.example.restaurantrecommendation.adapter.CategoryAdapter
 import com.example.restaurantrecommendation.databinding.BottomSheetCategoryBinding
-import com.example.restaurantrecommendation.data.domain.model.Category
+import com.example.restaurantrecommendation.domain.model.Category
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class CategoryBottomSheet: BottomSheetDialogFragment() {

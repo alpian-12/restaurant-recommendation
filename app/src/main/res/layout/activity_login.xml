@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     style="@style/layout"
-    tools:context=".ui.login.LoginActivity">
+    tools:context=".ui.auth.login.LoginActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -33,6 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <com.example.restaurantrecommendation.ui.customview.MyEditText
+            android:id="@+id/et_email"
             style="@style/field_text_input"
             android:paddingHorizontal="15dp"
             android:drawableStart="@drawable/ic_email"
@@ -41,6 +42,7 @@
             android:inputType="textEmailAddress" />
 
         <com.example.restaurantrecommendation.ui.customview.MyEditText
+            android:id="@+id/et_password"
             style="@style/field_text_input"
             android:layout_marginTop="22dp"
             android:paddingHorizontal="15dp"

@@ -1,23 +1,32 @@
 package com.example.restaurantrecommendation.ui.detailrestaurant
 
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.annotation.StringRes
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.example.restaurantrecommendation.R
 import com.example.restaurantrecommendation.adapter.SectionsPagerAdapterRestaurant
+import com.example.restaurantrecommendation.data.Resource
 import com.example.restaurantrecommendation.databinding.ActivityDetailRestaurantBinding
-import com.example.restaurantrecommendation.databinding.ActivityMainBinding
+import com.example.restaurantrecommendation.util.ViewModelFactory
 import com.google.android.material.tabs.TabLayoutMediator
 
 class DetailRestaurantActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityDetailRestaurantBinding
+    private lateinit var detailRestaurantViewModel: DetailRestaurantViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailRestaurantBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val factory = ViewModelFactory.getInstance(this@DetailRestaurantActivity)
+        detailRestaurantViewModel = ViewModelProvider(this, factory)[DetailRestaurantViewModel::class.java]
+
+        setToolbar()
+        val placeId: String? = intent.getStringExtra(PLACE_ID)
+        setDetailRestaurant()
 
         val sectionsPagerAdapter = SectionsPagerAdapterRestaurant(this)
         binding.viewPager.adapter = sectionsPagerAdapter
@@ -27,7 +36,22 @@ class DetailRestaurantActivity : AppCompatActivity() {
         binding.swiperefresh.setOnRefreshListener {
             binding.swiperefresh.isRefreshing = false
         }
-        setToolbar()
+    }
+
+    private fun setDetailRestaurant() {
+        detailRestaurantViewModel.restaurant.observe(this@DetailRestaurantActivity) { restaurant ->
+            if(restaurant != null) {
+                when(restaurant) {
+                    is Resource.Success -> {
+                        with(binding) {
+                            tvName.text = restaurant.data?.name
+                        }
+                    }
+                }
+            }
+        }
+
+
     }
 
     private fun setToolbar() {
@@ -42,11 +66,14 @@ class DetailRestaurantActivity : AppCompatActivity() {
         onBackPressed()
         return true
     }
+
     companion object {
         @StringRes
         private val TAB_TITLES = intArrayOf(
             R.string.tab_text_description,
             R.string.tab_text_review
         )
+
+        const val PLACE_ID = "place_id"
     }
 }
