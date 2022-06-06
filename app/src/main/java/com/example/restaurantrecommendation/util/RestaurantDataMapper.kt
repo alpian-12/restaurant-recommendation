@@ -4,9 +4,9 @@ import com.example.restaurantrecommendation.data.source.local.entity.RestaurantE
 import com.example.restaurantrecommendation.data.source.remote.response.RestaurantSearchResponse
 import com.example.restaurantrecommendation.domain.model.Restaurant
 
-object DataMapper {
+object RestaurantDataMapper {
     fun mapResponsesToEntities(input: List<RestaurantSearchResponse>): List<RestaurantEntity> {
-        val tourismList = ArrayList<RestaurantEntity>()
+        val restaurantList = ArrayList<RestaurantEntity>()
         input.map {
             val tourism = RestaurantEntity(
                 place_id = it.place_id,
@@ -17,9 +17,9 @@ object DataMapper {
 //                rating = it.rating,
                 isFavorite = false
             )
-            tourismList.add(tourism)
+            restaurantList.add(tourism)
         }
-        return tourismList
+        return restaurantList
     }
 
     fun mapEntitiesToDomain(input: List<RestaurantEntity>): List<Restaurant> =

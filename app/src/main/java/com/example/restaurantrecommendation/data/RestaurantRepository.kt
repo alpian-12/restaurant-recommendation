@@ -8,7 +8,7 @@ import com.example.restaurantrecommendation.data.source.remote.response.Restaura
 import com.example.restaurantrecommendation.domain.model.Restaurant
 import com.example.restaurantrecommendation.domain.model.RestaurantDetail
 import com.example.restaurantrecommendation.domain.repository.IRestaurantRepository
-import com.example.restaurantrecommendation.util.DataMapper
+import com.example.restaurantrecommendation.util.RestaurantDataMapper
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
@@ -34,7 +34,7 @@ class RestaurantRepository private constructor(
         object : NetworkBoundResource<List<Restaurant>, List<RestaurantSearchResponse>>() {
             override fun loadFromDB(): Flow<List<Restaurant>> {
                 return localDataSource.searchRestaurant().map {
-                    DataMapper.mapEntitiesToDomain(it)
+                    RestaurantDataMapper.mapEntitiesToDomain(it)
                 }
             }
 
@@ -46,7 +46,7 @@ class RestaurantRepository private constructor(
                 remoteDataSource.searchRestaurant(search, lat, long)
 
             override suspend fun saveCallResult(data: List<RestaurantSearchResponse>) {
-                val restaurantList = DataMapper.mapResponsesToEntities(data)
+                val restaurantList = RestaurantDataMapper.mapResponsesToEntities(data)
                 localDataSource.insertRestaurant(restaurantList)
             }
         }.asFlow()
