@@ -3,7 +3,8 @@ package com.example.restaurantrecommendation.ui.auth.signup
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.restaurantrecommendation.data.source.remote.network.Firebase
+import android.util.Log
+import com.example.restaurantrecommendation.remote.network.Firebase
 import com.example.restaurantrecommendation.databinding.ActivitySignUpBinding
 import com.example.restaurantrecommendation.ui.auth.login.LoginActivity
 import com.example.restaurantrecommendation.ui.main.MainActivity
@@ -40,13 +41,17 @@ class SignUpActivity : AppCompatActivity() {
                             userProfileChangeRequest {
                                 displayName = name
                             }
-                        )
+                        ).addOnCompleteListener {
+                            if (task.isSuccessful) {
+                                Log.d("profileChangeRequest", "User profile updated.")
+                            }
 
                         startActivity(Intent(this@SignUpActivity, MainActivity::class.java))
                         finish()
                     }
                 }
         }
+    }
     }
 }
 

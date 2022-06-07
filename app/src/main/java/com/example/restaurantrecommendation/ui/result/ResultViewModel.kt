@@ -4,16 +4,16 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
-import com.example.restaurantrecommendation.data.source.remote.network.ApiConfig
-import com.example.restaurantrecommendation.data.source.remote.response.ListRestaurantSearchResponse
-import com.example.restaurantrecommendation.data.source.remote.response.RestaurantSearchResponse
-import com.example.restaurantrecommendation.domain.usecase.RestaurantUseCase
+import com.example.restaurantrecommendation.remote.network.ApiConfig
+import com.example.restaurantrecommendation.remote.response.ListRestaurantSearchResponse
+import com.example.restaurantrecommendation.remote.response.RestaurantSearchResponse
+import com.example.restaurantrecommendation.next_dev.domain.usecase.RestaurantUseCase
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ResultViewModel(restaurantUseCase: RestaurantUseCase) : ViewModel() {
+//class ResultViewModel(restaurantUseCase: RestaurantUseCase) : ViewModel() {
+class ResultViewModel: ViewModel() {
     private val _listRestaurant = MutableLiveData<List<RestaurantSearchResponse>>()
     val listRestaurant: LiveData<List<RestaurantSearchResponse>> = _listRestaurant
     var search: String = ""

@@ -64,7 +64,8 @@
             android:text="@string/suggestions"
             android:layout_marginTop="@dimen/activity_vertical_margin"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_address" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_address"
+            android:visibility="gone"/>
 
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/chip_group"
@@ -75,7 +76,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_suggestion"
-            app:chipSpacingHorizontal="5dp"/>
+            app:chipSpacingHorizontal="5dp"
+            android:visibility="gone"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

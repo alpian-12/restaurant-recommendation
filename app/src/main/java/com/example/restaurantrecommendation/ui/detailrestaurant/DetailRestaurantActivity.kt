@@ -3,29 +3,30 @@ package com.example.restaurantrecommendation.ui.detailrestaurant
 import android.os.Bundle
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import com.example.restaurantrecommendation.R
 import com.example.restaurantrecommendation.adapter.SectionsPagerAdapterRestaurant
-import com.example.restaurantrecommendation.data.Resource
 import com.example.restaurantrecommendation.databinding.ActivityDetailRestaurantBinding
-import com.example.restaurantrecommendation.util.ViewModelFactory
+import com.example.restaurantrecommendation.next_dev.util.ViewModelFactory
 import com.google.android.material.tabs.TabLayoutMediator
 
 class DetailRestaurantActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailRestaurantBinding
     private lateinit var detailRestaurantViewModel: DetailRestaurantViewModel
+    private lateinit var placeId: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailRestaurantBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val factory = ViewModelFactory.getInstance(this@DetailRestaurantActivity)
-        detailRestaurantViewModel = ViewModelProvider(this, factory)[DetailRestaurantViewModel::class.java]
+        placeId = intent.getStringExtra(PLACE_ID)!!
+        detailRestaurantViewModel.setDetailRestaurant(placeId)
 
         setToolbar()
-        val placeId: String? = intent.getStringExtra(PLACE_ID)
+
         setDetailRestaurant()
 
         val sectionsPagerAdapter = SectionsPagerAdapterRestaurant(this)
@@ -39,19 +40,20 @@ class DetailRestaurantActivity : AppCompatActivity() {
     }
 
     private fun setDetailRestaurant() {
-        detailRestaurantViewModel.restaurant.observe(this@DetailRestaurantActivity) { restaurant ->
-            if(restaurant != null) {
-                when(restaurant) {
-                    is Resource.Success -> {
-                        with(binding) {
-                            tvName.text = restaurant.data?.name
-                        }
-                    }
-                }
+        showProgress(true)
+        detailRestaurantViewModel.restaurant.observe(this) {
+            binding.apply {
+                tvName.text = it.name
+                rateRestaurant.text = it.rating.toString()
+
+                constraintLayout.isVisible = true
+                showProgress(false)
             }
         }
+    }
 
-
+    private fun showProgress(state: Boolean) {
+        binding.progress.isVisible = state
     }
 
     private fun setToolbar() {
