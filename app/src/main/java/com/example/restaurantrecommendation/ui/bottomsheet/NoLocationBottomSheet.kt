@@ -38,5 +38,9 @@ class NoLocationBottomSheet: BottomSheetDialogFragment() {
         binding.btnSettings.setOnClickListener {
             startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS))
         }
+
+        binding.btnTry.setOnClickListener {
+            dismiss()
+        }
     }
 }

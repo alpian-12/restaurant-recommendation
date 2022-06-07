@@ -44,7 +44,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
     private fun setOnClickListener() {
         with(binding) {
-            tvYourLocation.setOnClickListener(this@HomeFragment)
+            tvLocation.setOnClickListener(this@HomeFragment)
             tvInput.setOnClickListener(this@HomeFragment)
             btnMore.setOnClickListener(this@HomeFragment)
             btnCamera.setOnClickListener(this@HomeFragment)
@@ -68,7 +68,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 startActivity(Intent(activity, CameraActivity::class.java))
                 getActivity()?.onBackPressed()
             }
-            R.id.tv_your_location -> {
+            R.id.tv_location -> {
                 val locationBottomSheet = LocationBottomSheet()
                 locationBottomSheet.show(parentFragmentManager, LocationBottomSheet.TAG)
             }
