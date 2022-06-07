@@ -9,13 +9,13 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.restaurantrecommendation.adapter.RestaurantAdapterSimple
 import com.example.restaurantrecommendation.databinding.ActivityCategoryBinding
-import com.example.restaurantrecommendation.ui.result.ResultViewModel
-import com.example.restaurantrecommendation.util.ViewModelFactory
+import com.example.restaurantrecommendation.next_dev.util.ViewModelFactory
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 
@@ -26,7 +26,7 @@ class CategoryActivity() : AppCompatActivity() {
     private var lon: Double = 0.0
     private var lat: Double = 0.0
     private var categoryName: String = ""
-    private lateinit var categoryViewModel: CategoryViewModel
+    private val categoryViewModel: CategoryViewModel by viewModels()
 
     companion object {
         const val CATEGORY_NAME = "Category"
@@ -41,8 +41,6 @@ class CategoryActivity() : AppCompatActivity() {
         binding.swiperefreshcategory.setOnRefreshListener {
             binding.swiperefreshcategory.isRefreshing = false
         }
-        val factory = ViewModelFactory.getInstance(this@CategoryActivity)
-        categoryViewModel = ViewModelProvider(this, factory)[CategoryViewModel::class.java]
 
         setToolbar(intent.getStringExtra(CATEGORY_NAME))
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)

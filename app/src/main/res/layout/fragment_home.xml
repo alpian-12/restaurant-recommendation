@@ -50,13 +50,13 @@
                 app:layout_constraintStart_toEndOf="@+id/iv_location"
                 app:layout_constraintTop_toTopOf="@+id/iv_location" />
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/iv_profile"
                 android:layout_width="34dp"
                 android:layout_height="34dp"
                 android:contentDescription="profile picture"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_launcher_background"
+                android:src="@drawable/default_profile"
                 app:layout_constraintBottom_toBottomOf="@id/tv_location"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_your_location"

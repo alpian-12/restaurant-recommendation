@@ -2,16 +2,19 @@ package com.example.restaurantrecommendation.ui.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.example.restaurantrecommendation.R
+import com.example.restaurantrecommendation.remote.network.Firebase
 import com.example.restaurantrecommendation.databinding.FragmentHomeBinding
 import com.example.restaurantrecommendation.ui.camera.CameraActivity
+import com.example.restaurantrecommendation.ui.category.CategoryActivity
 import com.example.restaurantrecommendation.ui.home.category.CategoryBottomSheet
 import com.example.restaurantrecommendation.ui.home.location.LocationBottomSheet
-import com.example.restaurantrecommendation.ui.category.CategoryActivity
 import com.example.restaurantrecommendation.ui.profile.ProfileActivity
 import com.example.restaurantrecommendation.ui.result.ResultActivity
 

@@ -9,35 +9,32 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.restaurantrecommendation.R
 import com.example.restaurantrecommendation.adapter.RestaurantAdapterSimple
 import com.example.restaurantrecommendation.databinding.ActivityResultBinding
 import com.example.restaurantrecommendation.ui.camera.CameraActivity
 import com.example.restaurantrecommendation.ui.main.MainActivity
-import com.example.restaurantrecommendation.util.*
 import com.google.android.gms.location.*
 
 class ResultActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityResultBinding
 
-    private lateinit var resultViewModelSimple: ResultViewModel
+    private val resultViewModelSimple: ResultViewModel by viewModels()
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private var lon: Double = 0.0
     private var lat: Double = 0.0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        val factory = ViewModelFactory.getInstance(this@ResultActivity)
-        resultViewModelSimple = ViewModelProvider(this, factory)[ResultViewModel::class.java]
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 

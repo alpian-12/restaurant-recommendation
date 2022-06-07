@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.recyclerview.widget.RecyclerView
 import com.example.restaurantrecommendation.R
-import com.example.restaurantrecommendation.data.source.remote.response.RestaurantSearchResponse
+import com.example.restaurantrecommendation.remote.response.RestaurantSearchResponse
 import com.example.restaurantrecommendation.databinding.ItemRestaurantBinding
-import com.example.restaurantrecommendation.domain.model.Restaurant
+import com.example.restaurantrecommendation.model.Restaurant
 import com.example.restaurantrecommendation.ui.detailrestaurant.DetailRestaurantActivity
 import java.util.ArrayList
 

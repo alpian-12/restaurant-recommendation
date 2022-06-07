@@ -7,7 +7,7 @@ import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.restaurantrecommendation.R
-import com.example.restaurantrecommendation.data.source.remote.network.Firebase
+import com.example.restaurantrecommendation.remote.network.Firebase
 import com.example.restaurantrecommendation.databinding.ActivityProfileBinding
 import com.example.restaurantrecommendation.databinding.DialogQuitBinding
 import com.example.restaurantrecommendation.ui.auth.login.LoginActivity
@@ -24,6 +24,7 @@ class ProfileActivity : AppCompatActivity() {
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setProfile()
 
         binding.menuLogout.setOnClickListener {
             bindingDialog = DialogQuitBinding.inflate(layoutInflater)
@@ -55,6 +56,15 @@ class ProfileActivity : AppCompatActivity() {
             startActivity(Intent(this@ProfileActivity,EditProfileActivity::class.java))
         }
         setToolbar()
+    }
+
+    private fun setProfile() {
+        with(Firebase.currentUser()) {
+            with(binding) {
+                tvName.text = displayName
+                tvEmail.text = email
+            }
+        }
     }
 
     private fun setToolbar() {

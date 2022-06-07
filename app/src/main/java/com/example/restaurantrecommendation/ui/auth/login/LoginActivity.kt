@@ -3,7 +3,7 @@ package com.example.restaurantrecommendation.ui.auth.login
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.restaurantrecommendation.data.source.remote.network.Firebase
+import com.example.restaurantrecommendation.remote.network.Firebase
 import com.example.restaurantrecommendation.databinding.ActivityLoginBinding
 import com.example.restaurantrecommendation.ui.auth.signup.SignUpActivity
 import com.example.restaurantrecommendation.ui.main.MainActivity

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.restaurantrecommendation.R
 import com.example.restaurantrecommendation.databinding.BottomSheetLocationBinding
-import com.example.restaurantrecommendation.domain.model.Location
+import com.example.restaurantrecommendation.model.Location
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.chip.Chip
 
