@@ -81,6 +81,7 @@ class ResultActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun showRecyclerView() {
+        binding.notfoundresult.visibility = View.INVISIBLE
         binding.rvRestaurant.visibility = View.INVISIBLE
         binding.progresbarresult.visibility = View.VISIBLE
         val restaurntAdapter = RestaurantAdapterSimple()
