@@ -8,7 +8,6 @@ import android.content.pm.PackageManager
 import android.location.LocationManager
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.FragmentManager
 import com.example.restaurantrecommendation.R
 import com.example.restaurantrecommendation.ui.bottomsheet.NoLocationBottomSheet

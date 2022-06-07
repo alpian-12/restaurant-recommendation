@@ -10,12 +10,14 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.restaurantrecommendation.R
 import com.example.restaurantrecommendation.databinding.ActivityMainBinding
-import com.example.restaurantrecommendation.util.*
+import com.example.restaurantrecommendation.ui.bottomsheet.NoInternetBottomSheet
+ import com.example.restaurantrecommendation.util.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var checkNetworkConnection: CheckNetworkConnection
 
     companion object {
         const val LOCATION_RESULT = 200
@@ -37,9 +39,21 @@ class MainActivity : AppCompatActivity() {
 
         getUserLocation(this@MainActivity, supportFragmentManager)
 
+        callNetworkConnection()
+
         val navView: BottomNavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         navView.setupWithNavController(navController)
+    }
+
+    private fun callNetworkConnection() {
+        checkNetworkConnection = CheckNetworkConnection(application)
+        checkNetworkConnection.observe(this) {
+            if(!it) {
+                val noInternetBottomSheet = NoInternetBottomSheet()
+                noInternetBottomSheet.show(supportFragmentManager, NoInternetBottomSheet.TAG)
+            }
+        }
     }
 
     override fun onRequestPermissionsResult(

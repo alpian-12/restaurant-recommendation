@@ -34,5 +34,8 @@ class NoInternetBottomSheet: BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.btnTry.setOnClickListener {
+            dismiss()
+        }
     }
 }
